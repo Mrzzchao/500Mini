@@ -1,0 +1,76 @@
+<view class="l-flex-1 l-relative " wx:if="{{subzsttype=='dxzs' || subzsttype == 'jozs' || subzsttype == 'zhzs'}}">
+      <view class="l-full l-scroll-y">
+      <view class="zous-2col  l-flex-row ">
+        <view class="zous-2col-l l-flex-column">
+        <view class="zstable2 zstable2-tit">
+          <view class="itm-qih zst-qh zst-qh-h ">期号</view>
+        </view>
+        <view class=" l-flex-1 l-relative">
+            <view class="zstable2 zstable2-tit">
+              <view class="itm-qih" wx:for="{{dxzs['data']}}" wx:key="{{item.expect}}">{{item.expect}}</view>				
+            </view>
+          </view>
+        </view>
+        <!--右边的-->
+      <view class="zous-2col-r l-flex-1 l-relative ">
+        <view class="l-full  l-flex-column jb-cont hq-dx-cont">
+          <view class="zstable2 zstable2-yil l-flex-row">
+            <view class="tab-r-tit tab-tit-five"><view class="tab-titer">红球</view></view>
+            <view class="tab-r-tit tab-tit-two">红一</view>
+            <view class="tab-r-tit tab-tit-two">红二</view>
+            <view class="tab-r-tit tab-tit-two">红三</view>
+            <view class="tab-r-tit tab-tit-two">红四</view>
+            <view class="tab-r-tit tab-tit-two">红五</view>
+            <view class="tab-r-tit tab-tit-two">红六</view>
+          </view>
+          <view class="zstable2 zstable2-yil l-flex-row">
+            <view class="tab-r-tit tab-tit-five"></view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][0]}}</view>
+            <view class="tab-r-tit">{{redballinfo[subzsttype][1]}}</view>
+          </view>
+          <view class="l-flex-1 l-relative ">
+            <view class="l-full l-flex-column tab-r-cont no-bg">
+              <view class="zstable2 zstable2-yil l-flex-row "  wx:for="{{dxzs['data']}}" wx:for-item="itemname"  wx:key="{{item.expect}}">
+                <view class="tab-r-item tab-tit-five"><view><text wx:for="{{itemname.opencode}}"  wx:key="{{item}}">{{item}} </text></view></view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx1}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx2}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx3}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx4}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx5}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+                <view class="tab-r-item" wx:for="{{itemname.reddx6}}" wx:key="{{index}}">
+                  <view wx:if="{{index==0}}" class="{{item == 0 ? 'cube-green' : ''}}">{{item == 0 ? redballinfo[subzsttype][0] : item}}</view>
+                  <view wx:if="{{index==1}}" class="{{item == 0 ? 'cube-yellow': ''}}">{{item == 0 ? redballinfo[subzsttype][1] : item}}</view>
+                </view>
+              </view>							
+            </view>
+          </view>
+        </view>
+      </view>			
+    </view>
+  </view>
+</view>

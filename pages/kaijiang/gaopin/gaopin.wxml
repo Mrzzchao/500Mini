@@ -1,0 +1,29 @@
+<view class='wrapper l-flex-column'>
+  <view class='header l-flex-row l-relative'>
+    <view class='expect l-flex-1'>{{day}}</view>
+     <view class="select-time l-relative" bindtap='toggleSelect'>
+       <view class="time-selecter">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{dayList}}">
+          <view class='more'>
+更多期次
+          </view>
+        </picker>
+      </view> 
+    </view> 
+  </view>
+
+   <view class='kj-info l-relative'>
+    <view class='kj-tit l-flex-row'>
+      <view class='l-flex-1 tit-item'>期号</view>
+      <view class='l-flex-1 tit-item'>时间</view>
+      <view class='l-flex-2 tit-item'>号码</view>
+    </view>
+    <view class='kj-content l-flex-row' wx:for="{{gaopinList}}">
+      <view class='l-flex-1 content-item'>{{item.expect}}</view>
+      <view class='l-flex-1 content-item'>{{item.opentime}}</view>
+      <view class='l-flex-2 content-item'>{{item.opencode}}</view>
+    </view>
+    
+  </view> 
+  <foot-tab kjPath="{{kjPath}}" datachartPath="{{datachartPath}}" helpPath="{{helpPath}}" title="{{zstTitle}}"></foot-tab>
+</view>

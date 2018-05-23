@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "500.com 超级大乐透",
+    "usingComponents": {
+      "foot-tab": "/components/footTab"
+    }
+  }

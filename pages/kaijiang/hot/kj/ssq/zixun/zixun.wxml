@@ -1,0 +1,25 @@
+<view class="wrap have-foot">
+  <view class="more-time-cont ">   
+      <view class="l-scroll-y">
+        <view class="kill-num"  data-url="/pages/kaijiang/hot/kj/ssq/zixun/detail?id=-2" bindtap="jump">
+          <image src="http://www.500cache.com/mobile/weixin/program/images/ssq/kill-num.jpg?v=1" alt="专家杀号"></image>
+          <view class="kill-date">更新至{{shahaolist.newsinfo.lastexpect}}期</view>
+        </view>
+        <view class="news-list">
+          <view class="news-list-box">
+            <view class="news-item"  wx:for="{{zxlist}}" wx:key="{{item.id}}" data-url="/pages/kaijiang/hot/kj/ssq/zixun/detail?id={{item.id}}" bindtap="jump">
+              <view class="news-l">
+                <view class="news-tit">{{item.title}}</view>
+                <view class="news-time">{{item.addtime}}</view>
+              </view>
+              <view class="news-r">
+                <image src="{{item.imgurl}}"></image>
+              </view>
+            </view>
+            <view class="load-more" bindtap="loaddingmore">{{loadding}}</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <include src="/pages/kaijiang/hot/ssq/common.wxml"/>
+</view>

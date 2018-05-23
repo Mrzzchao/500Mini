@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/kaijiang/kaijiang",
+    "pages/kaijiang/hot/kj/dlt/dlt",
+    "pages/kaijiang/hot/kj/ssq/ssq",
+    "pages/kaijiang/hot/kj/qxc/qxc",
+    "pages/kaijiang/hot/kj/qlc/qlc",
+    "pages/kaijiang/hot/kj/sand/sand",
+    "pages/kaijiang/hot/kj/pls/pls",
+    "pages/kaijiang/hot/kj/plw/plw",
+    "pages/kaijiang/hot/kj/syxw/syxw",
+    "pages/kaijiang/hot/kj/nsyxw/nsyxw",
+    "pages/kaijiang/hot/kj/sfc/sfc",
+    "pages/kaijiang/hot/kj/bqc/bqc",
+    "pages/kaijiang/hot/kj/jqc/jqc",
+    "pages/kaijiang/hot/kj/jczq/jczq",
+    "pages/kaijiang/hot/kj/jczq/detail/detail",
+    "pages/kaijiang/hot/kj/jclq/jclq",
+    "pages/kaijiang/hot/kj/jclq/detail/detail",
+    "pages/kaijiang/hot/kj/bjdc/bjdc",
+    "pages/kaijiang/hot/kj/ssq/index/index",
+    "pages/kaijiang/hot/kj/ssq/datachart/ball",
+    "pages/kaijiang/hot/kj/ssq/common",
+    "pages/kaijiang/hot/kj/ssq/datachart/datachart",
+    "pages/kaijiang/hot/kj/ssq/zixun/zixun",
+    "pages/kaijiang/hot/kj/ssq/zixun/detail",
+    "pages/kaijiang/hot/kj/ssq/prize/search",
+    "pages/kaijiang/local/local",
+    "pages/kaijiang/local/datachart/datachart",
+    "pages/kaijiang/hot/help/help",
+    "pages/kaijiang/hot/datachart/datachart",
+    "pages/kaijiang/gaopin/gaopin",
+    "pages/kaijiang/gaopin/datachart/datachart",
+    "pages/openplatform/index",
+    "pages/openplatform/home",
+    "pages/wxpay/wxpay"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff0000",
+    "navigationBarTitleText": "500彩票",
+    "navigationBarTextStyle": "white",
+    "qbDebugKey": "2889df2306b496fdcf6c9e58bc887b31"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#000000",
+    "selectedColor": "#EF5E5E",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/kaijiang/kaijiang",
+        "iconPath": "statics/open.png",
+        "selectedIconPath": "statics/open2.png",
+        "text": "开奖"
+      },
+      {
+        "pagePath": "pages/openplatform/home",
+        "iconPath": "statics/goder.png",
+        "selectedIconPath": "statics/goder2.png",
+        "text": "大神推单"
+      }
+    ]
+  },
+  "debug": true
+}

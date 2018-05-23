@@ -1,0 +1,27 @@
+<view class="wrapper wrapper-hasbot">
+  <view class="kaij-list1">
+
+    <view class="kaij-list-item" wx:for="{{historyList}}">
+      <view class="kaij-list1-hd">
+        <view class="kaij-list1-time">{{item.opentime}}</view>
+        <view class="kaij-list1-tit">第{{item.expect}}期</view>
+      </view>
+      <view class="kaij-list1-bd">
+        <view wx:if="{{index==0}}" class="ball-wrap">
+          <view class="ball-red">{{item.opencode[0]}}</view>
+          <view class="ball-red">{{item.opencode[1]}}</view>
+          <view class="ball-red">{{item.opencode[2]}}</view>
+          <view class="ball-red">{{item.opencode[3]}}</view>
+          <view class="ball-red">{{item.opencode[4]}}</view>
+        </view>
+        <view wx:if="{{index>0}}" class="nums-wrap">
+          <view class="nums-red">
+            {{item.opencode[0]}} {{item.opencode[1]}} {{item.opencode[2]}} {{item.opencode[3]}} {{item.opencode[4]}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<foot-tab kjPath="{{kjPath}}" datachartPath="{{datachartPath}}" helpPath="{{helpPath}}" title="{{zstTitle}}"></foot-tab>

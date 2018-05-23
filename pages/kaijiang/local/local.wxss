@@ -1,0 +1,9 @@
+/* pages/kaijiang/local/local.wxss */
+.nums-red, .nums-blue {
+  margin-right: .7em;
+}
+
+.kaij-basic-r2 {
+  margin-left:20px;
+  padding-right:12px;
+}

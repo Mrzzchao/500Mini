@@ -1,0 +1,22 @@
+<view class="foot-tab">
+    <view class="tab-cont">
+        <navigator bindtap="changeTap" url="{{kjPath}}"  open-type="redirect" data-type='kj'>
+          <view class="foot-tab-cont {{select == 'kj' ? 'tab-cur' : ''}}">
+              <view class="kj-icon"></view>
+              <view class="tab-cont-txt">开奖</view>
+          </view>
+        </navigator>
+        <navigator bindtap="changeTap" url="{{datachartPath}}"  open-type="redirect" data-type='zst'>
+          <view class="foot-tab-cont {{select == 'zst' ? 'tab-cur' : ''}}">
+              <view class="zst-icon"></view>
+              <view class="tab-cont-txt">走势图</view>
+          </view>
+        </navigator>
+        <!-- <navigator url="/pages/kaijiang/hot/ssq/zixun/zixun" open-type="redirect">
+          <view class="foot-tab-cont {{select == 'zixun' ? 'tab-cur' : ''}}">
+              <view class="zx-icon"></view>
+              <view class="tab-cont-txt">资讯</view>
+          </view>
+        </navigator> -->
+    </view>
+</view>

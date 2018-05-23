@@ -1,0 +1,70 @@
+<view class="wrap l-full l-flex-column syxw">
+  <view class="ball-tab">
+		<view class="ball-cont">
+			<view class="ball-tab-item {{zsttype== 'jbzs' ? 'ball-cur' : ''}}" bindtap="jumppre">基本</view>
+		  <view class="ball-tab-item {{zsttype== 'lqfb' ? 'ball-cur' : ''}}" bindtap="changezst" data-type="lqfb" data-subtype='fb'>蓝球</view>
+			<view class="ball-tab-item {{zsttype== 'hqfb' ? 'ball-cur' : ''}}" bindtap="changezst" data-type="hqfb" data-subtype='fb'>红球</view>
+		</view>
+	</view>
+  <view class="l-flex-1 l-relative" wx:if="{{subzsttype == 'fb'}}" >
+	   <view class="l-full l-scroll-y">
+    	<view class="zous-2col  l-flex-row "  wx:if="{{jbzs.data}}">
+	    	<view class="zous-2col-l l-flex-column">
+				<view class="zstable2 zstable2-tit">
+					<view class="itm-qih zst-qh">期号</view>
+				</view>
+				<view class=" l-flex-1 l-relative">
+						<view class="zstable2 zstable2-tit">
+							<view class="itm-qih" wx:for="{{jbzs.data}}" wx:key="{{item.expect}}">{{item.expect}}</view>
+							<view class="itm-qih">出现总次数</view>
+							<view class="itm-qih">平均遗漏值</view>
+							<view class="itm-qih">最大遗漏值</view>
+							<view class="itm-qih">最大连出值</view>
+						</view>
+					</view>
+	    	</view>
+	    	<!--右边的-->
+			<view  class="zous-2col-r l-flex-1 l-relative " id="container">
+				<view class="l-full  l-flex-column jb-cont" id="content" style="width:{{boxwidth}}">
+					<view class="zstable2 zstable2-yil l-flex-row">
+					 	<view class="tab-r-tit" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}"  wx:for="{{jbzs.data[0].redfb}}" wx:key="{{index}}">{{index+1}}</view>
+					 	<view class="tab-r-tit" wx:if="{{zsttype=='jbzs'  || zsttype == 'lqfb'}}"  wx:for="{{jbzs.data[0].bluefb}}" wx:key="{{index}}">{{index+1}}</view>
+					</view>
+					<view class="l-flex-1 l-relative " style="width:{{boxwidth}}">
+						<view class="l-full l-flex-column tab-r-cont">
+        		  <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{jbzs.data}}"  wx:key="{{item.expect}}">
+								<view wx:for="{{item.redfb}}" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}" wx:key="{{index}}"  wx:for-item="itemnew" class="tab-r-item"><view class="{{itemnew==0 ? 'on' : ''}}">{{itemnew==0?(index+1):itemnew}}</view></view>
+								<view wx:for="{{item.bluefb}}" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}" wx:key="{{index}}"  wx:for-item="itemnew" class="tab-r-item"><view class="{{itemnew==0 ? 'on-blue' : ''}}">{{itemnew==0?(index+1):itemnew}}</view></view>
+							</view>
+        		  <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{jbzs.newtj}}" wx:key="{{index}}" >
+								<view wx:for="{{item.redfb}}" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}" wx:key="{{index}}" wx:for-item="itemnew" class="tab-r-item"><view>{{itemnew}}</view></view>
+								<view wx:for="{{item.bluefb}}" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}" wx:key="{{index}}"  wx:for-item="itemnew" class="tab-r-item"><view>{{itemnew}}</view></view>
+							</view>
+              <view class="classname" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}"  >
+                <view wx:for="{{aLinePos}}" wx:key="{{index}}" style="top: {{item.top}}px;left: {{item.left}}px;width: {{item.width}}px;-webkit-transform:rotate({{item.deg}}deg);transform: rotate({{item.deg}}deg);" class="zstable-line"></view>
+              </view>
+	          </view>
+					</view>
+				</view>
+			</view>			
+		</view>
+	</view>
+  </view>
+  <include src="bluezd.wxml"/>
+  <include src="redball.wxml"/>
+  <view class="ball-tab" wx:if="{{zsttype== 'lqfb'}}">
+		<view class="ball-cont">
+			<view class="ball-tab-item {{subzsttype == 'fb' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="fb" data-type="lqfb">分布</view>
+			<view class="ball-tab-item {{subzsttype == 'cgzd' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="cgzd" data-type="lqfb">常规振荡</view>
+			<view class="ball-tab-item {{subzsttype == 'zezd' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="zezd" data-type="lqfb">0-8振荡</view>
+		</view>
+	</view>
+  <view class="ball-tab" wx:if="{{zsttype== 'hqfb'}}">
+		<view class="ball-cont">
+			<view class="ball-four-item {{subzsttype == 'fb' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="fb" data-type="hqfb">分布</view>
+			<view class="ball-four-item {{subzsttype == 'dxzs' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="dxzs" data-type="hqfb">大小</view>
+			<view class="ball-four-item {{subzsttype == 'jozs' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="jozs" data-type="hqfb">奇偶</view>
+			<view class="ball-four-item {{subzsttype == 'zhzs' ? 'ball-cur' : ''}}" bindtap="changezst" data-subtype="zhzs" data-type="hqfb">质合</view>
+		</view>
+	</view>
+</view>

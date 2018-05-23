@@ -1,0 +1,6 @@
+node_modules
+/.idea
+/.svn
+/dist
+/build
+/vim.exe.stackdump

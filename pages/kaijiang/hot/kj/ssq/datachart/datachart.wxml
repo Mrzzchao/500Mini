@@ -1,0 +1,54 @@
+<view class="wrap l-flex-column syxw zst-top-bot">
+	<view class="ball-tab">
+		<view class="ball-cont">
+			<view class="ball-tab-item {{zsttype== 'jbzs' ? 'ball-cur' : ''}}" bindtap="changezst" data-type="jbzs">基本</view>
+			<navigator url="./ball"><view class="ball-tab-item {{zsttype== 'lqfb' ? 'ball-cur' : ''}}">蓝球</view></navigator>
+			<navigator url="./ball?zsttype=hqfb"><view class="ball-tab-item {{zsttype== 'hqfb' ? 'ball-cur' : ''}}">红球</view></navigator>
+		</view>
+	</view>
+  <view class="l-flex-1 l-relative">
+	  <view class="l-scroll-y">
+    	<view class="zous-2col  l-flex-row "  wx:if="{{jbzs.data}}">
+	    	<view class="zous-2col-l l-flex-column">
+          <view class="zstable2 zstable2-tit">
+            <view class="itm-qih zst-qh">期号</view>
+          </view>
+          <view class=" l-flex-1 l-relative">
+              <view class="zstable2 zstable2-tit">
+                <view class="itm-qih" wx:for="{{jbzs.data}}" wx:key="{{item.expect}}">{{item.expect}}</view>
+                <view class="itm-qih">出现总次数</view>
+                <view class="itm-qih">平均遗漏值</view>
+                <view class="itm-qih">最大遗漏值</view>
+                <view class="itm-qih">最大连出值</view>
+              </view>
+          </view>
+	      </view>
+	    	<!--右边的-->
+        <view  class="zous-2col-r l-flex-1 l-relative ">
+          <view class=" l-flex-column jb-cont" style="width:{{boxwidth}}">
+            <view class="zstable2 zstable2-yil l-flex-row">
+              <view class="tab-r-tit" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}"  wx:for="{{jbzs.data[0].redfb}}" wx:key="{{index}}">{{index+1}}</view>
+              <view class="tab-r-tit" wx:if="{{zsttype=='jbzs'  || zsttype == 'lqfb'}}"  wx:for="{{jbzs.data[0].bluefb}}" wx:key="{{index}}">{{index+1}}</view>
+            </view>
+            <view class="l-flex-1 l-relative " style="width:{{boxwidth}}">
+              <view class="l-flex-column tab-r-cont">
+                <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{jbzs.data}}" wx:key="{{item.expect}}">
+                  <view wx:for="{{item.redfb}}" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}"  wx:for-item="itemnew" wx:key="{{index}}" class="tab-r-item"><view class="{{itemnew==0 ? 'on' : ''}}">{{itemnew==0?(index+1):itemnew}}</view></view>
+                  <view wx:for="{{item.bluefb}}" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}"  wx:for-item="itemnew" wx:key="{{index}}" class="tab-r-item"><view class="{{itemnew==0 ? 'on-blue' : ''}}">{{itemnew==0?(index+1):itemnew}}</view></view>
+                </view>
+                <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{jbzs.newtj}}" wx:key="{{index}}">
+                  <view wx:for="{{item.redfb}}" wx:if="{{zsttype=='jbzs'  || zsttype == 'hqfb'}}" wx:for-item="itemnew" wx:key="{{index}}" class="tab-r-item"><view>{{itemnew}}</view></view>
+                  <view wx:for="{{item.bluefb}}" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}"  wx:for-item="itemnew" wx:key="{{index}}" class="tab-r-item"><view>{{itemnew}}</view></view>
+                </view>
+                <view class="classname" wx:if="{{zsttype=='jbzs' || zsttype == 'lqfb'}}"  >
+                  <view wx:for="{{aLinePos}}" wx:key="{{index}}" style="top: {{item.top}}px;left: {{item.left}}px;width: {{item.width}}px;-webkit-transform:rotate({{item.deg}}deg);transform: rotate({{item.deg}}deg);" class="zstable-line"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>			
+		  </view>
+	  </view>
+  </view>
+  <include src="/pages/kaijiang/hot/ssq/common.wxml"/>
+</view>

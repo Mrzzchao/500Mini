@@ -1,0 +1,3 @@
+@import "../common.wxss";
+.kjwords {font-size:14px;font-family:"Microsoft YaHei",Arial;}
+.kaij-time {float:none;font-size:11px;color:#ccc}

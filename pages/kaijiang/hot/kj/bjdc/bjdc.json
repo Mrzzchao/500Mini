@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "500.com 北京单场",
+  "usingComponents": {
+    "foot-tab": "/components/special/footTab"
+  }
+}

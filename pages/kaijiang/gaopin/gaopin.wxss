@@ -1,0 +1,44 @@
+
+.select-time {
+  position:absolute;
+  top:10rpx;
+  right:40rpx;
+  text-align:right;
+  margin-right:1em;
+  font-size: 11px;
+
+}
+.wrap {
+	width:100%;
+	background:#fff;
+}
+.header {
+	width:100%;
+	background:#fff;
+	margin-top:20rpx;
+	padding:20rpx;
+	color:#333;
+}
+.header .expect {
+  font-size: 14px;
+}
+.header .more {
+  font-size: 14px;
+}
+.tit-item {
+	margin:14rpx 0;
+	height:50rpx;
+	line-height:50rpx;
+	font-size:14px;
+	color:#999;
+	text-align:center;
+}
+.content-item {
+	margin:14rpx 0;
+	height:50rpx;
+	line-height:50rpx;
+	font-size:13px;
+	color:#333;
+	text-align:center;
+  overflow:auto;
+}

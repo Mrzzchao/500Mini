@@ -1,0 +1,26 @@
+/* pages/kaijiang/kaijiang.wxss */
+.wrapper {
+  overflow: hidden;
+}
+
+.local-kaij {
+  padding: 10px;
+}
+
+.kaij-tit {
+    color: #999;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+.local-tit {
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 16px;
+}
+.rect-blue,.rect-red{
+  display:inline-block;margin-right:2px;width:50px;height:21px;line-height:21px;font-size:12px;color:#fff;
+  background:#EF5E5E;
+  text-align: center;
+  }

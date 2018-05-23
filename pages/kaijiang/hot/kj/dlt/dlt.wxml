@@ -1,0 +1,241 @@
+<view>
+  <view class="ui-navbox">
+      <view class="ui-navbox-in">
+          <view class="ui-navbox-iners">
+              <view bindtap="changeTap" class="ui-navbox-iner  {{tab=='1'?'select':''}}">本期详情</view>
+              <view bindtap="changeTap" class="ui-navbox-iner {{tab=='2'?'select':''}}">更多期次</view>
+          </view>
+      </view>
+  </view>
+
+  <view class="wrapper" wx:if="{{tab=='1'}}">
+      <view class="kaij-basic">
+          <view class="kaij-basic-l"><span class="ui-logo ui-logo-dlt"></span></view>
+          <view class="kaij-basic-r">
+              <view class="kaij-time">{{prize_info.ResultTime}}</view>
+              <view class="kaij-tit">{{expect}}期</view>
+              <view class="kaij-tips"></view>
+              <view class="kaij-result" wx:if="{{current_expect && current_expect==expect}}">
+                <view class="kaij-ntime">今晚20:30开奖</view>
+              </view>
+              <view class="kaij-result">
+                  <view class="ball-wrap" wx:if="{{prize_info.fore}}"  class="ball-wrap ball-wrap-dlt">
+                      <view class="ball-red">{{prize_info.fore[0]}}</view>
+                      <view class="ball-red">{{prize_info.fore[1]}}</view>
+                      <view class="ball-red">{{prize_info.fore[2]}}</view>
+                      <view class="ball-red">{{prize_info.fore[3]}}</view>
+                      <view class="ball-red">{{prize_info.fore[4]}}</view>
+                      <view class="ball-blue">{{prize_info.back[0]}}</view>
+                      <view class="ball-blue">{{prize_info.back[1]}}</view>
+                  </view>
+              </view>
+          </view>
+      </view>
+      <view class="kaij-detail">
+          <view class="kaij-tab-hd">
+            开奖详情
+          </view>
+          <view class="kaij-tab-bd kaij-detail-hasbot">
+              <view class="pdlr10">
+                  <view class="kaij-table">
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item xiaol-this-tit l-flex-1">本期销量</view>
+                          <view class="xiaol-this-item xiaol-this-tit  l-flex-1">滚存</view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item itm-light l-flex-1">{{prize_info.TotalMoney}}</view>
+                          <view class=" xiaol-this-item itm-light l-flex-1">{{prize_info.CCMoney}}</view>
+                      </view>
+                  </view>
+              </view>
+              <view class="pdlr10">
+                  <view class="kaij-table">
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖项</view>
+                          <view class="xiaol-this-item xiaol-this-tit l-flex-1">中奖注数</view>
+                          <view class="xiaol-this-item xiaol-this-tit l-flex-1">每注奖金(元)</view>
+                          <view class="xiaol-this-item xiaol-this-tit l-flex-1">应派合计(元)</view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">一等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum1?prize_info.BaseNum1:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney1?prize_info.BaseMoney1:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney1?prize_info.baseTotalMoney1:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">一等奖追加</view>
+                          <view class="xiaol-this-item l-flex-1">
+                              {{prize_info.AdditionNum1?prize_info.AdditionNum1:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney1?prize_info.AdditionMoney1:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney1?prize_info.baseAddTotalMoney1:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">二等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum2?prize_info.BaseNum2:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney2?prize_info.BaseMoney2:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney2?prize_info.baseTotalMoney2:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">二等奖追加</view>
+                          <view class="xiaol-this-item l-flex-1">
+                              {{prize_info.AdditionNum2?prize_info.AdditionNum2:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney2?prize_info.AdditionMoney2:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney2?prize_info.baseAddTotalMoney2:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">三等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum3?prize_info.BaseNum3:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney3?prize_info.BaseMoney3:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney3?prize_info.baseTotalMoney3:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">三等奖追加</view>
+                          <view class="xiaol-this-item l-flex-1">
+                              {{prize_info.AdditionNum3?prize_info.AdditionNum3:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney3?prize_info.AdditionMoney3:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney3?prize_info.baseAddTotalMoney3:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">四等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum4?prize_info.BaseNum4:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney4?prize_info.BaseMoney4:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney4?prize_info.baseTotalMoney4:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">四等奖追加</view>
+                          <view class="xiaol-this-item l-flex-1">
+                              {{prize_info.AdditionNum4?prize_info.AdditionNum4:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney4?prize_info.AdditionMoney4:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney4?prize_info.baseAddTotalMoney4:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">五等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum5?prize_info.BaseNum5:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney5?prize_info.BaseMoney5:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney5?prize_info.baseTotalMoney5:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">五等奖追加</view>
+                          <view class="xiaol-this-item l-flex-1">
+                              {{prize_info.AdditionNum5?prize_info.AdditionNum5:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney5?prize_info.AdditionMoney5:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.AdditionMoney5?prize_info.baseAddTotalMoney5:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">六等奖基本</view>
+                          <view class="xiaol-this-item l-flex-1">{{prize_info.BaseNum6?prize_info.BaseNum6:'--'}}</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.BaseMoney6?prize_info.BaseMoney6:'--'}}
+                          </view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.baseTotalMoney6?prize_info.baseTotalMoney6:'--'}}
+                          </view>
+                      </view>
+                      <view class="xiaol-this l-flex-row">
+                          <view class="xiaol-this-item l-flex-1">合计</view>
+                          <view class="xiaol-this-item l-flex-1">--</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">--</view>
+                          <view class="xiaol-this-item itm-light l-flex-1">
+                              {{prize_info.TotalPrizeMoney?prize_info.TotalPrizeMoney:'--'}}
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </view>
+  </view>
+
+
+  <view class="wrapper wrapper-hasbot" wx:if="{{tab=='2'}}">
+      <view class="kaij-list1">
+          <view class="kaij-list-item" bindtap="showPrize" data-expect="{{current_expect}}" wx:if="{{current_expect}}">
+              <view class="kaij-list1-hd">
+                  <view class="kaij-list1-tit">第{{current_expect}}期</view>
+              </view>
+              <view class="kaij-list1-bd">
+                  <view class="kaij-ntime">今晚20:30开奖</view>
+                              <view class="arrow-wrap">
+                  <view  class="list-arrow"></view>
+              </view>
+              </view>
+
+          </view>
+          <view class="kaij-list-item" catchtap="showPrize" data-expect="{{item.expect}}" wx:for="{{historyList}}">
+              <view class="kaij-list1-hd">
+                  <view class="kaij-list1-time">{{item.opentime}}</view>
+                  <view class="kaij-list1-tit">第{{item.expect}}期</view>
+              </view>
+              <view class="kaij-list1-bd">
+                  <view wx:if="{{index==0&&!current_expect}}" class="ball-wrap ball-wrap-dlt">
+                      <view class="ball-red">{{item.opencode[0]}}</view>
+                      <view class="ball-red">{{item.opencode[1]}}</view>
+                      <view class="ball-red">{{item.opencode[2]}}</view>
+                      <view class="ball-red">{{item.opencode[3]}}</view>
+                      <view class="ball-red">{{item.opencode[4]}}</view>
+                      <view class="ball-blue">{{item.opencode[5]}}</view>
+                      <view class="ball-blue">{{item.opencode[6]}}</view>
+                  </view>
+                  <view wx:if="{{index>0||(index==0&&current_expect)}}" class="nums-wrap nums-wrap-dlt">
+                      <view class="nums-red">
+                          {{item.opencode[0]}} {{item.opencode[1]}} {{item.opencode[2]}} {{item.opencode[3]}}
+                          {{item.opencode[4]}}
+                      </view>
+                      <view class="nums-blue">
+                          {{item.opencode[5]}} {{item.opencode[6]}}
+                      </view>
+                  </view>
+                  <view class="arrow-wrap">
+                      <view  class="list-arrow"></view>
+                  </view>
+              </view>
+          </view>
+
+      </view>
+  </view>
+  <foot-tab kjPath="{{kjPath}}" datachartPath="{{datachartPath}}" helpPath="{{helpPath}}" title="{{zstTitle}}"></foot-tab>
+</view>

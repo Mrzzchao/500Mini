@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "500.com 竞彩足球",
+  "usingComponents": {
+    "foot-tab": "/components/jc/footTab"
+  }
+}

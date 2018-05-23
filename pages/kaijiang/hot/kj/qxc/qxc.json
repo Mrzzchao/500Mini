@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "500.com 七星彩",
+        "usingComponents": {
+          "foot-tab": "/components/footTab"
+        }
+  }

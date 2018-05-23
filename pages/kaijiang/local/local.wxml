@@ -1,0 +1,98 @@
+<view>
+  <view class="ui-navbox">
+    <view class="ui-navbox-in">
+      <view class="ui-navbox-iners">
+        <view bindtap="changeTap" class="ui-navbox-iner  {{tab=='1'?'select':''}}">本期详情</view>
+        <view bindtap="changeTap" class="ui-navbox-iner {{tab=='2'?'select':''}}">更多期次</view>
+      </view>
+    </view>
+  </view>
+  <view class="wrapper" wx:if="{{tab=='1'}}">
+    <view class="kaij-basic">
+      <!-- <view class="kaij-basic-l">
+        <span class="ui-logo ui-logo-{{lotname}}"></span>
+      </view> -->
+      <view class="kaij-basic-r2">
+        <view class="kaij-time">{{localDetail.resulttime}}</view>
+        <view class="kaij-tit">{{localDetail.expect}}期</view>
+        <view class="kaij-tips"></view>
+        <view class="kaij-result">
+          <view class="ball-wrap">
+            <view class="ball-red" wx:for="{{localDetail.fore}}" wx:for-item="fore">{{fore}}</view>
+            <view class="ball-blue" wx:for="{{localDetail.back}}" wx:for-item="back">{{back}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="kaij-detail">
+      <view class="kaij-tab-hd">
+        开奖详情
+      </view>
+      <view class="kaij-tab-bd kaij-detail-hasbot">
+        <view class="pdlr10">
+          <view class="kaij-table">
+            <view class="xiaol-this l-flex-row">
+              <view class="xiaol-this-item xiaol-this-tit l-flex-1">本期销量</view>
+              <view class="xiaol-this-item xiaol-this-tit  l-flex-1">滚存</view>
+            </view>
+            <view class="xiaol-this l-flex-row">
+              <view class="xiaol-this-item itm-light l-flex-1">{{localDetail.totalmoney?localDetail.totalmoney:'--'}}</view>
+              <view class=" xiaol-this-item itm-light l-flex-1">{{localDetail.ccmoney?localDetail.ccmoney:'--'}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="pdlr10">
+          <view class="kaij-table">
+            <view class="xiaol-this l-flex-row">
+              <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖项</view>
+              <view class="xiaol-this-item xiaol-this-tit l-flex-1">中奖注数</view>
+              <view class="xiaol-this-item xiaol-this-tit l-flex-1">每注奖金(元)</view>
+            </view>
+            <view class="xiaol-this l-flex-row" wx:for="{{localDetail.award}}">
+              <view class="xiaol-this-item l-flex-1">{{item.name}}</view>
+              <view class="xiaol-this-item l-flex-1">{{item.num?item.num:'--'}}</view>
+              <view class="xiaol-this-item itm-light l-flex-1">
+                {{item.money?item.money:'--'}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="wrapper wrapper-hasbot" wx:if="{{tab=='2'}}">
+    <view class="kaij-list1">
+
+      <view class="kaij-list-item" catchtap="showPrize" data-expect="{{item.expect}}" wx:for="{{historyList}}">
+        <view class="kaij-list1-hd">
+          <view class="kaij-list1-time">{{item.opentime}}</view>
+          <view class="kaij-list1-tit">第{{item.expect}}期</view>
+        </view>
+        <view class="kaij-list1-bd">
+          <view wx:if="{{index==0}}" class="ball-wrap">
+            <view class="ball-red" wx:for="{{item.fore}}" wx:for-item="fore">
+              {{fore}}
+            </view>
+            <view class="ball-blue" wx:for="{{item.back}}" wx:for-item="back">
+              {{back}}
+            </view>
+          </view>
+          <view wx:if="{{index>0}}" class="nums-wrap">
+            <view class="nums-red" wx:for="{{item.fore}}" wx:for-item="fore">
+              {{fore}}
+            </view>
+            <view class="nums-blue" wx:for="{{item.back}}" wx:for-item="back">
+              {{back}}
+            </view>
+          </view>
+          <view class="arrow-wrap">
+            <view class="list-arrow"></view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <foot-tab kjPath="{{kjPath}}" datachartPath="{{datachartPath}}" helpPath="{{helpPath}}" title="{{zstTitle}}"></foot-tab>
+</view>

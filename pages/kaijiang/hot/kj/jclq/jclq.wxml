@@ -1,0 +1,60 @@
+<view class="ui-navcont l-flex-row">
+  <view class="ui-navboxer l-flex-1 {{tab=='rfsf'?'ui-navboxer-sel':''}}" data-tab="rfsf" catchtap="changeTap">让分胜负</view>
+  <view class="ui-navboxer l-flex-1 {{tab=='sf'?'ui-navboxer-sel':''}}" data-tab="sf" catchtap="changeTap">胜负</view>
+  <view class="ui-navboxer l-flex-1 {{tab=='dxf'?'ui-navboxer-sel':''}}" data-tab="dxf" catchtap="changeTap">大小分</view>
+  <view class="ui-navboxer l-flex-1 {{tab=='sfc'?'ui-navboxer-sel':''}}" data-tab="sfc" catchtap="changeTap">胜分差</view>
+</view>
+<view class="select-time">
+  <view class="time-selecter">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{dateList}}">
+      {{day}}
+      <view class="icon-drop"></view>
+    </picker>
+  </view>
+</view>
+<view class="pdlr10">
+  <view class="kaij-table jz-cont">
+    <view class="xiaol-this l-flex-row">
+      <view class="xiaol-this-item xiaol-this-tit l-flex-1">编号</view>
+      <view class="xiaol-this-item xiaol-this-tit l-flex-1">主队</view>
+      <view class="xiaol-this-item xiaol-this-tit l-flex-1">赛果</view>
+      <view class="xiaol-this-item xiaol-this-tit l-flex-1">客队</view>
+      <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖金</view>
+    </view>
+    <block wx:for-items="{{matchList}}">
+      <view class="xiaol-this l-flex-row">
+        <view class="xiaol-this-item l-flex-1">
+          <view class="itm_num">{{item.matchnum}}</view>
+          <view>{{item.simpleleague}}</view>
+        </view>
+        <view class="xiaol-this-item l-flex-1 vertical-m">
+          <view>{{item.awaysxname}}</view>
+        </view>
+        <view wx:if="{{tab=='rfsf'}}" class="xiaol-this-item l-flex-1 {{item.resultrfsfgg=='让分主胜'?'sbox_sheng':''}}{{item.resultrfsfgg=='让分主负'?'sbox_fu':''}}">
+          <view>{{item.score=='-1:-1'?'':item.score}}</view>
+          <view>{{item.resultrfsfgg}}</view>
+        </view>
+        <view wx:if="{{tab=='sf'}}" class="xiaol-this-item l-flex-1 {{item.resultrfsfgg=='让分主胜'?'sbox_sheng':''}}{{item.resultrfsfgg=='让分主负'?'sbox_fu':''}}">
+          <view>{{item.score=='-1:-1'?'':item.score}}</view>
+          <view>{{item.resultsfgg}}</view>
+        </view>
+        <view wx:if="{{tab=='dxf'}}" class="xiaol-this-item l-flex-1 {{item.resultrfsfgg=='让分主胜'?'sbox_sheng':''}}{{item.resultrfsfgg=='让分主负'?'sbox_fu':''}}">
+          <view>{{item.score=='-1:-1'?'':item.score}}</view>
+          <view >{{item.resultdxfgg}}</view>
+        </view>
+        <view wx:if="{{tab=='sfc'}}" class="xiaol-this-item l-flex-1 {{item.resultrfsfgg=='让分主胜'?'sbox_sheng':''}}{{item.resultrfsfgg=='让分主负'?'sbox_fu':''}}">
+          <view>{{item.score=='-1:-1'?'':item.score}}</view>
+          <view class="red">{{item.resultsfc}}</view>
+        </view>
+        <view class="xiaol-this-item l-flex-1 {{tab=='sf'||tab=='sfc'?'vertical-m':''}}">
+           <view>{{item.homesxname}}</view>
+           <view  class="red" wx:if="{{item.rangfen>-1 && tab=='rfsf'}}">(+{{item.rangfen}})</view>
+           <view  class="green" wx:if="{{item.rangfen<0 && tab=='rfsf'}}">({{item.rangfen}})</view>
+           <view   wx:if="{{tab=='dxf'}}">{{item.ggyszf}}</view>
+        </view>
+        <view class="xiaol-this-item l-flex-1 vertical-m">{{item.score=='-1:-1'?'':''}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<foot-tab kjPath="{{kjPath}}" expectPath="{{expectPath}}" detailPath="{{detailPath}}" helpPath="{{helpPath}}"></foot-tab>

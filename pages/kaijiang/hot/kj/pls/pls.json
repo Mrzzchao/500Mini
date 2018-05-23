@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "500.com 排列3",
+        "usingComponents": {
+          "foot-tab": "/components/footTab"
+        }
+  }

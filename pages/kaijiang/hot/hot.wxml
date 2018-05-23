@@ -1,0 +1,412 @@
+<view class="wrapper wrapper-space wrapper-hasbot">
+  <view class="kaij-mylist">
+    <navigator url="dlt/dlt?expect={{dlt.curr_expect?dlt.curr_expect:dlt.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-dlt"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{dlt.curr_expect?current_date:dlt.result_time}} {{dlt.curr_expect?current_week:dltWeek}}
+                </view>
+                <view class="itm-tit">超级大乐透
+                  <view class="itm-qih">{{dlt.curr_expect?dlt.curr_expect:dlt.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view wx:if="{{dlt.curr_expect}}" class="itm-result"> 今晚20:30开奖</view>
+                <view wx:if="{{!dlt.curr_expect}}" class="itm-result">
+                  <view class="ball-wrap ball-wrap-dlt">
+                    <block wx:for-items="{{dlt.fore}}">
+                      <i class="ball-red">{{item}}</i>
+                    </block>
+                    <block wx:for-items="{{dlt.back}}">
+                      <i class="ball-blue">{{item}}</i>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </view>
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="ssq/index/index" hover-class="none">
+    <view class="kaij-mylist-li">
+      <view class="kaij-mylist-lier">
+        <view class="kaij-mylist-l">
+          <view class="ui-logo ui-logo-ssq"></view>
+        </view>
+          <view class="kaij-mylist-r">
+            <view class="kaij-mylist-hd">
+              <view class="itm-time">{{ssq.curr_expect?(current_date):ssq.result_time}} {{ssq.curr_expect?current_week:ssqWeek}}
+              </view>
+              <view class="itm-tit">双色球
+                <view class="itm-qih">{{ssq.curr_expect?ssq.curr_expect:ssq.kaijiang_expect}} 期</view>
+              </view>
+            </view>
+            <view class="kaij-mylist-bd">
+              <view wx:if="{{ssq.curr_expect}}" class="itm-result">今晚21:15开奖</view>
+              <view wx:if="{{!ssq.curr_expect}}" class="itm-result">
+                <view class="ball-wrap">
+                  <block wx:for-items="{{ssq.fore}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                  <block wx:for-items="{{ssq.back}}">
+                    <i class="ball-blue">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+          </view>
+      </view>
+    </view>
+    </navigator>
+    
+    <navigator url="qxc/qxc?expect={{qxc.curr_expect?qxc.curr_expect:qxc.kaijiang_expect}}"  hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-qxc"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{qxc.curr_expect?(current_date):qxc.result_time}} {{qxc.curr_expect?current_week:qxcWeek}}
+                </view>
+                <view class="itm-tit">七星彩
+                  <view class="itm-qih">{{qxc.curr_expect?qxc.curr_expect:qxc.kaijiang_expect}} 期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view wx:if="{{qxc.curr_expect}}" class="itm-result">今晚20:30开奖</view>
+                <view wx:if="{{!qxc.curr_expect}}" class="itm-result">
+                  <view class="ball-wrap ">
+                    <block wx:for-items="{{qxc.opencode}}">
+                      <i class="ball-red">{{item}}</i>
+                    </block>
+                  </view>
+                </view>
+              </view>
+              <view class="list-arrow"></view>
+            </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="qlc/qlc?expect={{qlc.curr_expect?qlc.curr_expect:qlc.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-qlc"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{qlcOpenDate?(current_date):qlc.result_time}} {{qlcOpenDate?current_week:qlcWeek}}
+                </view>
+                <view class="itm-tit">七乐彩
+                  <view class="itm-qih">{{qlcOpenDate?qlc.curr_expect:qlc.kaijiang_expect}} 期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view wx:if="{{qlcOpenDate}}" class="itm-result">今晚20:30开奖</view>
+                <view wx:if="{{!qlcOpenDate}}" class="itm-result">
+                  <view class="ball-wrap">
+                    <block wx:for-items="{{qlc.fore}}">
+                      <i class="ball-red">{{item}}</i>
+                    </block>
+                    <block wx:for-items="{{qlc.back}}">
+                      <i class="ball-blue">{{item}}</i>
+                    </block>
+                  </view>
+                </view>
+              </view>
+              <view class="list-arrow"></view>
+            </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="sand/sand?expect={{sd.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-3d"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{sd.result_time}} {{sdWeek}}</view>
+                <view class="itm-tit">福彩3D
+                  <view class="itm-qih">{{sd.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <block wx:for-items="{{sd.opencode}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="pls/pls?expect={{pls.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-pl3"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{pls.result_time}} {{plsWeek}}</view>
+                <view class="itm-tit">排列3
+                  <view class="itm-qih">{{pls.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <block wx:for-items="{{pls.opencode}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="plw/plw?expect={{plw.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-pl5"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{plw.result_time}} {{plwWeek}}</view>
+                <view class="itm-tit">排列5
+                  <view class="itm-qih">{{plw.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <block wx:for-items="{{plw.opencode}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="syxw/syxw" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-syxw"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{xyxw.result_time}} {{xyxwWeek}}</view>
+                <view class="itm-tit">11选5
+                  <view class="itm-qih">{{xyxw.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <block wx:for-items="{{xyxw.opencode}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="nsyxw/nsyxw" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-syxw2"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{nxyxw.result_time}} {{nxyxwWeek}}</view>
+                <view class="itm-tit">新11选5
+                  <view class="itm-qih">{{nxyxw.kaijiang_expect}}期</view>
+                </view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <block wx:for-items="{{nxyxw.opencode}}">
+                    <i class="ball-red">{{item}}</i>
+                  </block>
+                </view>
+              </view>
+            </view>
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    
+    <navigator url="sfc/sfc?expect={{sfc.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-sfc"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{sfc.result_time}} {{sfcWeek}}</view>
+                <view class="itm-tit">胜负彩（任9）
+                  <view class="itm-qih">{{sfc.kaijiang_expect}}期</view>
+                </view>
+              </view>
+
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <view class="sfc-ball-wrap">
+                    <block wx:for-items="{{sfc.opencode}}">
+                      <view class="sfc-ball-boxer">{{item}}</view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="bqc/bqc?expect={{bqc.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-bqc"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{bqc.result_time}} {{bqcWeek}}</view>
+                <view class="itm-tit">6场半全场
+                  <view class="itm-qih">{{bqc.kaijiang_expect}}期</view>
+                </view>
+              </view>
+
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <view class="sfc-ball-wrap">
+                    <block wx:for-items="{{bqc.opencode}}">
+                      <view class="sfc-ball-boxer">{{item}}</view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="jqc/jqc?expect={{bqc.kaijiang_expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-scjq"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{jqc.result_time}} {{jqcWeek}}</view>
+                <view class="itm-tit">4场进球彩
+                  <view class="itm-qih">{{jqc.kaijiang_expect}}期</view>
+                </view>
+              </view>
+
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">
+                  <view class="sfc-ball-wrap">
+                    <block wx:for-items="{{jqc.opencode}}">
+                      <view class="sfc-ball-boxer">{{item}}</view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+
+          <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="jczq/jczq?day={{jczq.result_time}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-jczq"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{jczq.result_time}} {{jczqWeek}}</view>
+                <view class="itm-tit">竞彩足球</view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">{{jczqWeek}}比赛共{{jczq.lens}}场，已开奖
+                  <view class="red">{{jczq.kaijiang_lens}}</view> 场
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="jclq/jclq?day={{jclq.result_time}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-jclq"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{jclq.result_time}} {{jclqWeek}}</view>
+                <view class="itm-tit">竞彩篮球</view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result">{{jclqWeek}}比赛共{{jclq.lens}}场，已开奖
+                  <view class="red">{{jclq.kaijiang_lens}}</view> 场
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="bjdc/bjdc?expect={{bjdc.expect}}" hover-class="none">
+      <view class="kaij-mylist-li">
+        <view class="kaij-mylist-lier">
+          <view class="kaij-mylist-l">
+            <view class="ui-logo ui-logo-dcjc"></view>
+          </view>
+            <view class="kaij-mylist-r">
+              <view class="kaij-mylist-hd">
+                <view class="itm-time">{{bjdc.expect}}</view>
+                <view class="itm-tit">足球单场</view>
+              </view>
+              <view class="kaij-mylist-bd">
+                <view class="itm-result"> 比赛共{{bjdc.lens}}场，已开奖
+                  <view class="red">{{bjdc.kaijiang_lens}}</view> 场
+                </view>
+              </view>
+            </view>
+            <view class="list-arrow"></view>
+        </view>
+      </view>
+    </navigator>
+    
+  </view>
+  <view class="data-source">500彩票小程序功能页面数据来源：</view>
+  <view class="data-source-new">500彩票网(http://m.500.com)</view>
+</view>

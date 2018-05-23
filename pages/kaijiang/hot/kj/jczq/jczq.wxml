@@ -1,0 +1,67 @@
+<view class='wrapper'>
+  <view class="ui-navcont l-flex-row">
+    <view class="ui-navboxer l-flex-1 {{tab=='nspf'?'ui-navboxer-sel':''}}" data-tab="nspf" catchtap="changeTap">胜平负</view>
+    <view class="ui-navboxer l-flex-1 {{tab=='spf'?'ui-navboxer-sel':''}}" data-tab="spf" catchtap="changeTap">让球胜平负</view>
+    <view class="ui-navboxer l-flex-1 {{tab=='bf'?'ui-navboxer-sel':''}}" data-tab="bf" catchtap="changeTap">比分</view>
+    <view class="ui-navboxer l-flex-1 {{tab=='jqs'?'ui-navboxer-sel':''}}" data-tab="jqs" catchtap="changeTap">总进球</view>
+    <view class="ui-navboxer l-flex-1 {{tab=='bqc'?'ui-navboxer-sel':''}}" data-tab="bqc" catchtap="changeTap">半全场</view>
+  </view>
+  <view class="select-time">
+    <view class="time-selecter">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{dateList}}">
+        {{day}}
+        <view class="icon-drop"></view>
+      </picker>
+    </view>
+  </view>
+  <view class="pdlr10">
+    <view class="kaij-table jz-cont">
+      <view class="xiaol-this l-flex-row">
+        <view class="xiaol-this-item xiaol-this-tit l-flex-1">编号</view>
+        <view class="xiaol-this-item xiaol-this-tit l-flex-1">主队</view>
+        <view class="xiaol-this-item xiaol-this-tit l-flex-1">赛果</view>
+        <view class="xiaol-this-item xiaol-this-tit l-flex-1">客队</view>
+        <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖金</view>
+      </view>
+      <block wx:for-items="{{matchList}}">
+        <view class="xiaol-this l-flex-row">
+          <view class="xiaol-this-item l-flex-1">
+            <view class="itm_num">{{item.matchnum}}</view>
+            <view>{{item.simpleleague}}</view>
+          </view>
+          <view class="xiaol-this-item l-flex-1">
+            <view>{{item.homename}}</view>
+            <view class="red" wx:if="{{item.rangqiu>-1}}">(+{{item.rangqiu}})</view>
+            <view class="green" wx:if="{{item.rangqiu<0}}">({{item.rangqiu}})</view>
+          </view>
+          <view wx:if="{{tab=='nspf'}}" class="xiaol-this-item l-flex-1 {{item.resultnspf=='胜'?'sbox_sheng':''}}{{item.resultnspf=='平'?'sbox_ping':''}}{{item.resultnspf=='负'?'sbox_fu':''}}">
+            <view>{{item.score=='-1:-1'?'':item.score}}</view>
+            <view>{{item.resultnspf}}</view>
+          </view>
+          <view wx:if="{{tab=='spf'}}" class="xiaol-this-item l-flex-1 {{item.resultspf=='胜'?'sbox_sheng':''}}{{item.resultspf=='平'?'sbox_ping':''}}{{item.resultspf=='负'?'sbox_fu':''}}">
+            <view>{{item.score=='-1:-1'?'':item.score}}</view>
+            <view>{{item.resultspf}}</view>
+          </view>
+          <view wx:if="{{tab=='bf'}}" class="xiaol-this-item l-flex-1 {{item.resultnspf=='胜'?'sbox_sheng':''}}{{item.resultnspf=='平'?'sbox_ping':''}}{{item.resultnspf=='负'?'sbox_fu':''}}">
+            <view style="margin-top:18%">{{item.resultbf}}</view>
+          </view>
+          <view wx:if="{{tab=='jqs'}}" class="xiaol-this-item l-flex-1 {{item.resultnspf=='胜'?'sbox_sheng':''}}{{item.resultnspf=='平'?'sbox_ping':''}}{{item.resultnspf=='负'?'sbox_fu':''}}">
+            <view>{{item.score=='-1:-1'?'':item.score}}</view>
+            <view class="red">{{item.resultjqs}}</view>
+          </view>
+          <view wx:if="{{tab=='bqc'}}" class="xiaol-this-item l-flex-1 {{item.resultnspf=='胜'?'sbox_sheng':''}}{{item.resultnspf=='平'?'sbox_ping':''}}{{item.resultnspf=='负'?'sbox_fu':''}}">
+            <view>{{item.score=='-1:-1'?'':item.score}}</view>
+            <view class="red">{{item.resultbqc}}</view>
+          </view>
+          <view class="xiaol-this-item l-flex-1 vertical-m">{{item.awayname}}</view>
+          <view wx:if="{{tab=='spf'}}" class="xiaol-this-item l-flex-1 vertical-m">{{item.spf}}</view>
+          <view wx:if="{{tab=='nspf'}}" class="xiaol-this-item l-flex-1 vertical-m">{{item.nspf}}</view>
+          <view wx:if="{{tab=='bf'}}" class="xiaol-this-item l-flex-1 vertical-m">{{item.bf}}</view>
+          <view wx:if="{{tab=='jqs'}}" class="xiaol-this-item l-flex-1 vertical-m">{{item.jq}}</view>
+          <view wx:if="{{tab=='bqc'}}" class="xiaol-this-item l-flex-1 vertical-m">{{item.bq}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<foot-tab kjPath="{{kjPath}}" expectPath="{{expectPath}}" detailPath="{{detailPath}}" helpPath="{{helpPath}}"></foot-tab>

@@ -1,0 +1,76 @@
+<view class="l-flex-1 l-relative " wx:if="{{zsttype== 'lqfb' && subzsttype != 'fb'}}">
+  <view class="l-full l-scroll-y">
+    <view class="zous-2col  l-flex-row ">
+	    <view class="zous-2col-l l-flex-column">
+				<view class="zstable2 zstable2-tit">
+					<view class="itm-qih zst-qh">期号</view>
+				</view>
+				<view class=" l-flex-1 l-relative">
+						<view class="zstable2 zstable2-tit">
+							<view class="itm-qih" wx:for="{{blue['data']}}" wx:key="{{item.expect}}">{{item.expect}}</view>
+						</view>
+					</view>
+	    	</view>
+	    	<!--右边的-->
+        <view class="zous-2col-r l-flex-1 l-relative "  wx:if="{{subzsttype=='cgzd'}}">
+          <view class="l-full  l-flex-column jb-cont lq-cgzd-cont">
+            <view class="zstable2 zstable2-yil l-flex-row">
+              <view class="tab-r-tit">振荡</view>
+              <view class="tab-r-tit">0</view>
+              <view class="tab-r-tit">1</view>
+              <view class="tab-r-tit">2</view>
+              <view class="tab-r-tit">3</view>
+              <view class="tab-r-tit">4</view>
+              <view class="tab-r-tit">5</view>
+              <view class="tab-r-tit">6</view>
+              <view class="tab-r-tit">7</view>
+              <view class="tab-r-tit">8</view>
+              <view class="tab-r-tit">9</view>
+              <view class="tab-r-tit">10</view>
+              <view class="tab-r-tit">11</view>
+              <view class="tab-r-tit">12</view>
+              <view class="tab-r-tit">13</view>
+              <view class="tab-r-tit">14</view>
+              <view class="tab-r-tit">15</view>
+            </view>
+            <view class="l-flex-1 l-relative ">
+              <view class="l-full l-flex-column tab-r-cont">
+                <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{blue['data']}}"  wx:key="{{item.expect}}">
+                  <view class="tab-r-item" wx:for="{{item.zd}}"  wx:key="{{index}}"><view class="{{index !=0 && item==0 ? 'cube-orange' : ''}}">{{index !=0 && item == 0 ? (index-1) : item}}</view></view>
+                </view>
+                <view class="classname">
+                <view wx:for="{{aZdLinePos}}" wx:key="{{index}}" style="top: {{item.top}}px;left: {{item.left}}px;width: {{item.width}}px;-webkit-transform:rotate({{item.deg}}deg);transform: rotate({{item.deg}}deg);" class="zstable-line"></view>
+              </view>
+              </view>
+            </view>
+          </view>
+        </view>	
+        <view class="zous-2col-r l-flex-1 l-relative "  wx:if="{{subzsttype=='zezd'}}" >
+          <view class="l-full  l-flex-column jb-cont lq-cgzd-cont" style="width:300px;">
+            <view class="zstable2 zstable2-yil l-flex-row">
+              <view class="tab-r-tit">环距</view>
+              <view class="tab-r-tit">0</view>
+              <view class="tab-r-tit">1</view>
+              <view class="tab-r-tit">2</view>
+              <view class="tab-r-tit">3</view>
+              <view class="tab-r-tit">4</view>
+              <view class="tab-r-tit">5</view>
+              <view class="tab-r-tit">6</view>
+              <view class="tab-r-tit">7</view>
+              <view class="tab-r-tit">8</view>
+            </view>
+            <view class="l-flex-1 l-relative ">
+              <view class="l-full l-flex-column tab-r-cont">
+                <view class="zstable2 zstable2-yil l-flex-row " wx:for="{{blue['data']}}"  wx:key="{{index}}">
+                  <view class="tab-r-item" wx:for="{{item.xhzd}}"  wx:key="{{index}}"><view class="{{index !=0 && item==0 ? 'cube-orange' : ''}}">{{index !=0 && item == 0 ? (index-1) : item}}</view></view>
+                </view>
+                <view class="classname">
+                <view wx:for="{{aZdLinePos}}"  wx:key="{{index}}" style="top: {{item.top}}px;left: {{item.left}}px;width: {{item.width}}px;-webkit-transform:rotate({{item.deg}}deg);transform: rotate({{item.deg}}deg);" class="zstable-line"></view>
+              </view>
+              </view>
+            </view>
+          </view>
+        </view>			
+		</view>
+	</view>
+</view>

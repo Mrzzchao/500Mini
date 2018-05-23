@@ -1,0 +1,47 @@
+<view class="wrap">
+	<view class="news-detail" wx:if="{{id > 0}}">
+		<view class="art-tit">{{detail.title}}</view>
+		<view class="art-time">{{detail.addtime}} {{detail.author}} {{detail.fromsite}}</view>
+		<view class="detail-content">
+      <import src="/wxParse/wxParse.wxml"/>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+	</view>
+  <view class="sh-wrap" wx:if="{{id==-2}}">
+    <view class="news-detail sh-news-detail" wx:if="{{shahaolist && shahaolist.newsinfo}}">
+      <view class="art-tit">{{shahaolist.newsinfo.sortidName}}第{{shahaolist.newsinfo.lastexpect}}期专家杀号 {{shahaolist.newsinfo.opendate}}</view>
+      <view class="art-time">{{shahaolist.newsinfo['today']}} 500彩票网</view>
+      <view class="detail-bg">
+        <view class="prl15">
+            <view class="sh-in-box">
+              <view class="sh-title">{{shahaolist.newsinfo.lastexpect}}期杀号<span class="r-date">{{shahaolist.newsinfo.opendate}}</span></view>
+              <view class="sh-zj">
+                    <view class="sh-zj-name">
+                      <view class="sh-zj-namer sh-w74">专家团队</view>
+                      <view class=" sh-zj-namer sh-w40" wx:for="{{shahaolist.team}}" wx:key="{{item}}">{{item}}</view>
+                    </view>
+                    <view class="sh-zj-num">
+                      <view class="sh-w74  sh-zj-namer">红球杀号</view>
+                          <view class="sh-w40  sh-zj-namer " wx:for="{{shahaolist.newsest.hqsh}}"  wx:key="{{item}}"><view class="sh-red-ball">{{item}}</view></view>
+                    </view>
+                    <view class="sh-zj-num">
+                      <view class="sh-w74 sh-zj-namer line-low"><view>近20期</view><view>正确率</view></view>
+                          <view class="sh-w40 sh-zj-namer" wx:for="{{shahaolist.rate.qqrate}}"  wx:key="{{item}}">{{item == 100 ? '全对' : item + '%'}}</view>
+                    </view>
+                    <view class="sh-zj-num mt6">
+                      <view class="sh-w74  sh-zj-namer">蓝球杀号</view>
+                          <view class="sh-w40  sh-zj-namer " wx:for="{{shahaolist.newsest.qqsh}}"  wx:key="{{item}}"><view class="sh-blue-ball ">{{item}}</view></view>
+                    </view>
+                    <view class="sh-zj-num">
+                      <view class="sh-w74 sh-zj-namer line-low"><view>近20期</view><view>正确率</view></view>
+                          <view class="sh-w40 sh-zj-namer"  wx:for="{{shahaolist.rate.hqrate}}"  wx:key="{{item}}">{{item == 100 ? '全对' : item + '%'}}</view>
+                    </view>
+                </view>
+                <view class="sh-tip"><view>说明：杀号就是专家预测在该期不可能开出的号码 </view><view>(数据仅作分析参考 非投注建议 )</view>
+                </view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

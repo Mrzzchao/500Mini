@@ -1,0 +1,48 @@
+<view class="wrapper l-full l-flex-column"  wx:if="{{!issearch}}">
+    <view class="chax-qih">
+        选择您的彩票期号
+        <view class="chax-drop">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{aExpect}}">
+              <view class="picker">
+              {{aExpect[index]}} <view class="chax-droparrow"></view>
+              </view>
+            </picker>
+        </view>
+    </view>
+    <view class="l-flex-1 l-relative ">
+      <view class="l-full l-scroll-y">
+        <view class="dlt_xuan chax-xuan">
+          <view class="before_area">
+              <view class="area_tit"><view class="area_name">红球</view></view>
+              <view class="area_ball">
+                  <view class="area_ballor">
+                      <view class="area_ballor_item" wx:for="{{redball}}" wx:key="{{item.index}}">
+                          <view class="ball_icon {{item.ischeck ? 'ball_select' : ''}}"  data-index="{{item.index}}" data-type="red" bindtap="clickball">{{item.sindex}}</view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view class="after_area">
+              <view class="area_tit"><view class="area_name">蓝球</view></view>
+              <view class="area_ball area_blue">
+                  <view class="area_ballor">
+                      <view class="area_ballor_item" wx:for="{{blueball}}" wx:key="{{item.index}}">
+                          <view class="ball_icon {{item.ischeck ? 'ball_select' : ''}}" data-index="{{item.index}}" data-type="blue" bindtap="clickball">{{item.sindex}}</view>
+                      </view>                
+                  </view>
+              </view>
+          </view>
+      </view>
+      </view>
+    </view>
+    
+    <!--foot begin-->
+    <view class="chax-foot">
+        <span class="chax-foot-btn" bindtap="clicksearch">查 询</span>
+        <p class="chax-foot-tips">说明：中奖查询只支持普通投注，暂不支持托胆投注</p>
+    </view>
+    <!--foot end-->
+</view>
+  
+<import src="show.wxml"/>
+<template is="show" wx:if="{{issearch}}" data="{{opensearch: opensearch}}"/>

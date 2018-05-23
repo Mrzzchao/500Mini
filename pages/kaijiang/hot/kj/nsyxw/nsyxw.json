@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "500.com 江苏11选5",
+        "usingComponents": {
+          "foot-tab": "/components/footTab"
+        }
+  }

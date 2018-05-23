@@ -1,0 +1,2 @@
+@import "../common.wxss";
+.l-flex-1{overflow-x: auto;}

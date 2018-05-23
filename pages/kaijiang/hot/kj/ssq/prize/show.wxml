@@ -1,0 +1,44 @@
+<template name="show" wx:if="{{isshow}}">
+<view class="wrapper">
+    <view class="chax-hd chax-space">
+        <!--中奖用chax-xiaoico-->
+        <view class="chax-title" wx:if="opensearch"><view class=" {{opensearch.userMoney==0 ? 'chax-kuico' : 'chax-xiaoico'}}"></view><view class="cxjg-word">{{opensearch.userMoney==0 ? "很遗憾，未中奖！" : (opensearch.userMoney>0 ? "恭喜您，查询的方案中奖了！": '')}}</view></view>
+    </view>
+    <text class="num-zjzs" wx:for="{{opensearch.userZjResult}}">{{index}}等奖{{item}}注</text>
+    <view class="chax-scol ng-binding-cont">
+        共计奖金：
+        <view class="ng-binding"></view>
+        <view class="red ng-binding">{{opensearch.userMoney}}</view>
+        <view class="ng-binding">元</view>
+       <view>说明：查询结果仅供参考，最终开奖请留意官方开奖公告</view>
+    </view>
+    <view class="chax-scol">
+        <view class="chax-shd">
+            <view class="chax-stit">您的选择：</view>
+        </view>
+        <view class="chax-sbd">
+            <view class="chax-sballs">
+                <view wx:for="{{opensearch.userRedCodes}}" class="sball-red {{item.iszj ? 'sball-red-on' : ''}}">{{item.code}}</view>
+            </view>
+            <view class="chax-sballs">
+                <view wx:for="{{opensearch.userBlueCodes}}" class="sball-blue {{item.iszj ? 'sball-blue-on' : ''}}">{{item.code}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="chax-scol">
+        <view class="chax-shd">
+            <view class="chax-stit">开奖号码：</view>
+        </view>
+        <view class="chax-sbd">
+            <view class="chax-sballs">
+                <view class="sball-red sball-red-on " wx:for="{{opensearch.KjRedCodes}}">{{item}}</view>
+                <view class="sball-blue sball-blue-on " wx:for="{{opensearch.KjBlueCodes}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="chax-foot">
+        <view class="chax-foot-btn" bindtap="research">重新查询</view>
+        <view class="chax-foot-tips">说明：中奖查询只支持普通投注，暂不支持托胆投注</view>
+    </view>
+</view>
+</template>

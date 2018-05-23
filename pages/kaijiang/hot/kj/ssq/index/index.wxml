@@ -1,0 +1,81 @@
+<view class="dingz-wrap have-foot">
+    <view class="more-time-cont">   
+        <view class="l-scroll-y">
+            <!--开奖时间-->
+            <view class="kaij-time">双色球开奖时间：每周二、四、日</view>
+            <view class="kaij-item-cont"  wx:for="{{openList}}" wx:for-index="idx" wx:key="item.expect">
+                <view class="kaij-boxer" data-expect="{{item.expect}}" bindtap="getOpenDetail">
+                    <view class="kaij-tit ">{{item.expect}}期<view class="kaij-tit-time">{{item.opentime}} {{item.week}}</view></view>
+                    <view class="kaij-jg {{idx == 0 && !item.curr_expect ? '' : 'kaij-jg-wq'}}">
+                        <view wx:if="{{item.curr_expect}}" class="itm-result kjwords">今晚21:15开奖</view>
+                        <view class="kaij-jg-box" wx:if="{{!item.curr_expect}}" >
+                          <view class="kaij-jg-boxer {{idx == 0 ? 'red-ball' : 'red-txt'}}" wx:for="{{item.opencode.red}}" wx:key="{{item}}">{{item}}</view>
+                          <view class="kaij-jg-boxer  {{idx == 0 ? 'blue-ball' : 'blue-txt'}}"  wx:for="{{item.opencode.blue}}" wx:key="{{item}}">{{item}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="about-info-box" wx:if="{{openDetail[item.expect].isshow}}">
+                  <!--【情况1】未开奖-->
+                  <view class="ui-empty" wx:if="{{item.curr_expect}}">
+                      <image src="http://www.500cache.com/mobile/weixin/program/images/ssq/empty1.png" class="w240"></image>
+                      <view class="ui-empty-gfont">还没开奖详情哦~~</view>
+                  </view>
+                  <!--【情况2】已开奖-->
+                  <view class="lottery-box-det" wx:if="{{!item.curr_expect}}">   
+                      <view class="money-pool"> 
+                          <view class="money-poolor">
+                              <view class="money-pool-txt">{{openDetail[item.expect].totalmoney}}<view class="txter">亿</view></view>
+                              <view class="money-pool-detail">本期全国销量</view>
+                          </view>
+                          <view class="money-poolor">
+                              <view class="money-pool-txt">{{openDetail[item.expect].ccmoney}}<view class="txter">亿</view></view>
+                              <view class="money-pool-detail">滚存</view>
+                          </view>
+                      </view>
+                      <view class="lottery-table l-flex-row">  
+                          <!--左边的奖项-->
+                          <view class="lottery-tab-l ">
+                              <view class="lottery-tab-ler">
+                                  <view class="lottery-tab-lertem lottery-tab-tit">奖项</view>
+                                  <view class="lottery-tab-lertem">一等奖</view>
+                                  <view class="lottery-tab-lertem">二等奖</view>
+                                  <view class="lottery-tab-lertem">三等奖</view>
+                                  <view class="lottery-tab-lertem">四等奖</view>
+                                  <view class="lottery-tab-lertem">五等奖</view>
+                                  <view class="lottery-tab-lertem">六等奖</view>
+                              </view>
+                          </view>
+                          <!--右边的数据-->
+                          <view class="lottery-tab-r l-flex-1 l-relative" id="container">  
+                              <view class="info-table " id="content">
+                                  <view class="info-table-cont">
+                                      <view class="l-flex-row info-table-contor">
+                                          <view class="info-table-zjtj lottery-tab-tit">中奖条件</view>
+                                          <view class="info-table-zjtj lottery-tab-tit">中奖注数</view>
+                                          <view class="info-table-zjtj lottery-tab-tit">单注奖金（元）</view>
+                                      </view>
+                                  </view>
+                                  <view class="info-table-cont" wx:for="{{openDetail[item.expect]['detail']}}" wx:key="{{item.expect}}">
+                                      <view class="l-flex-row info-table-contor">
+                                          <view class="info-table-zjtj">{{kjcondition[index]}}</view>
+                                          <view class="info-table-zjtj">{{item[1]}}</view>
+                                          <view class="info-table-zjtj">{{item[2]}}</view>
+                                      </view>
+                                  </view>
+                              </view>                               
+                          </view>
+                      </view>
+                      <!--各省销量+中奖查询-->
+                      <view class="gsxl-box">
+                          <view class="gsxl-contor">
+                              <view class="gsxl-cont-item zjcx-btn" bindtap="jump" data-url="/pages/kaijiang/hot/ssq/prize/search?expect={{item.expect}}">中奖查询</view>
+                          </view>
+                      </view>
+                  </view>
+                </view>
+            </view>
+            <view class="load-more" bindtap="loaddingmore">{{loadding}}</view>
+        </view>
+    </view>
+    <include src="/pages/kaijiang/hot/kj/ssq/common.wxml"/>
+</view>
