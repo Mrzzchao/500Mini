@@ -3,7 +3,6 @@ var app = getApp();
 Page({
   data: {
     tab: '1',
-    subPath: '/wechatapp',
     historyList: [],
     current_expect: '',
     kjPath: '',                                     // 底下Tab小程序开奖地址
@@ -22,6 +21,7 @@ Page({
     this.setData({
       tab: tab
     })
+
     wx.setNavigationBarTitle({ title: options.lotchinesename + '详情' })
   },
   changeTap: function () {
@@ -32,36 +32,16 @@ Page({
     }
   },
   getLocalDetail({expect, lotname}) {
-    wx.showLoading({
-      title: '数据加载中...',
-    })
-    wx.request({
-      url: `https://passport.500.com${this.data.subPath}/kaijiang/lotinfo?expect=${expect}&lotname=${lotname}`,
-      data: { t: new Date().getTime() },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'GET',
-      success: (res) => {
-        if (res.data.status === '100') {
-          this.formatLottery(res.data.data)
-          this.formatExpect(res.data.data.historyexpect)
-          this.setData({ localDetail: res.data.data })
-          this.setData({ historyList: res.data.data.historyexpect})
-          this.setData({datachartPath: res.data.data.zoushitu})
-          this.setData({zstTitle: res.data.data.zoushitu_title})
-        } else {
-          console.log(res.message)
-        }
-        wx.hideLoading()
-      },
-      fail: (res) => {
-        console.log(res.message)
-      },
-      complete: (res) => { },
+    app.utils.Ajax.getLocalDetail({ expect, lotname }).then((data) => {
+      this.formatLottery(data)
+      this.formatExpect(data.historyexpect)
+      this.setData({ localDetail: data })
+      this.setData({ historyList: data.historyexpect })
+      this.setData({ datachartPath: data.zoushitu })
+      this.setData({ zstTitle: data.zoushitu_title })
     })
   },
+
   showPrize(e) {
     const expect = e.currentTarget.dataset.expect
     if (expect) {
@@ -74,10 +54,12 @@ Page({
       this.setData({ tab: '1' });
     }
   },
+
   formatLottery(data) {
     const weekList = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
     const strArr = data.opencode.split('|')
     const date = data.opentime.split(' ')[0]
+
     data.fore = strArr[0].split(',')
     data.back = strArr[1] ? strArr[1].split(',') : []
     data.weekDay = weekList[new Date(date).getDay()]

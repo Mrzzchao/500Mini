@@ -1,68 +1,40 @@
 // pages/jczq/jczq.js
+const app = getApp()
 Page({
   data: {
-    'tab': 'nspf',
+    tab: 'nspf',
     kjPath: '',         // 底下Tab小程序开奖地址
     expectPath: '/pages/kaijiang/hot/kj/jczq/info/info',         // 底下Tab小程序往期结果地址
     detailPath: '/pages/kaijiang/hot/kj/jczq/detail/detail',      // 底下Tab小程序详情页地址
     helpPath: '/pages/kaijiang/hot/help/help',      // 底下Tab小程序玩法地址
   },
-  onLoad: function (options) {
-    options.day = options.day;
+  
+  onLoad(options) {
     if (options.day) {
       this.setData({ day: options.day });
       this.getOpenInfo();
       this.getDateList();
     }
   },
-  changeTap: function (e) {
+
+  changeTap(e) {
     this.setData({ tab: e.currentTarget.dataset.tab })
   },
-  bindPickerChange: function (e) {
+
+  bindPickerChange(e) {
     this.setData({ day: this.data.dateList[e.detail.value] })
-    this.setData({ matchList: []});
+    this.setData({ matchList: [] });
     this.getOpenInfo();
   },
+
   getOpenInfo() {
-    var _this = this;
-    wx.request({
-      url: 'https://passport.500.com/wechatapp/kaijiang/wechatinfo',
-      data: { lotid: 46, expect: '', day: this.data.day.replace(/-/g, ''), t: new Date().getTime() },
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        _this.setData({ matchList: res.data.data });
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
+    app.utils.Ajax.getJcPrizeDetail({ lotid: 46, expect: '', day: this.data.day.replace(/-/g, '') }).then((data) => {
+      this.setData({ matchList: data });
     })
   },
-  getDateList: function () {
-    var _this = this;
-    wx.request({
-      url: 'https://passport.500.com/wechatapp/kaijiang/datelist',
-      data: { t: new Date().getTime() },
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'Content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        _this.setData({ dateList: res.data.data });
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
+  getDateList() {
+    app.utils.Ajax.getJcHistory().then((data) => {
+      this.setData({ dateList: data });
     })
   }
 })

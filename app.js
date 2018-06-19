@@ -1,5 +1,6 @@
 //app.js
 var utilUser = require("./utils/user.js");
+const Ajax = require("./controls/ajax.js")
 App({
   onLaunch: function () {
     this.getUserInfo();
@@ -27,6 +28,9 @@ App({
   globalData: {
     rechecktimes : 0,
     userInfo:null
+  },
+  utils: {
+    Ajax: Ajax
   },
   getOpenHistory:function(lotId,callBack){
     wx.request({

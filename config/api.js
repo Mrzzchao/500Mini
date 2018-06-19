@@ -10,6 +10,12 @@ module.exports = {
   HotHistory: domain + '/kaijiang/history',
   HotPrizeDetail: domain + '/kaijiang/wechatinfo',
 
+  BdExpectList: domain + '/kaijiang/bdexpectlist',
+  BdsfExpectList: domain + '/kaijiang/bdsfexpectlist',
+
+  JcPrizeDetail: domain + '/kaijiang/wechatinfo',
+  JcHistory: domain + '/kaijiang/datelist',
+
   // 地方彩
   LocalDetail: domain + '/kaijiang/lotinfo',
 

@@ -8,7 +8,6 @@
     <view class='l-flex-1 l-scroll-y'>
       <!-- 全国彩 -->
       <view wx:if="{{tab=='quanguo'}}">
-        <navigator url="/pages/kaijiang/hot/help/help">玩法介绍</navigator>
         <navigator url="/pages/kaijiang/hot/kj/dlt/dlt?expect={{dlt.curr_expect?dlt.curr_expect:dlt.kaijiang_expect}}" hover-class="none">
           <view class="kaij-mylist-li">
             <view class="kaij-mylist-lier">
@@ -422,12 +421,12 @@
         <view class='kaij-tit'>
           地方彩种
         </view>
-        <view class='local-box' wx:for="{{provList[1]}}" wx:key="{{item.id}}" wx:for-index="idx">
+        <view class='local-box' wx:for="{{provList}}" wx:key="{{item.id}}" wx:for-index="idx">
           <view class='local-tit' bindtap='collap' data-type="1" data-idx="{{idx}}" data-provId="{{item.id}}">
             {{item.province}}
             <view class="list-arrow {{collapStatus[idx] ? 'arrow-up' : 'arrow-down'}}"></view>
           </view>
-          <block wx:for="{{provLottery[1][item.id]}}" wx:for-item="lottery" wx:if="{{collapStatus[idx]}}">
+          <block wx:for="{{provLottery[item.id]}}" wx:for-item="lottery" wx:if="{{collapStatus[idx]}}">
             <navigator url='local/local?expect={{lottery.expect}}&lotname={{lottery.lotname}}&lotchinesename={{lottery.lotchinesename}}' hover-class='none'>
               <view class='local-lottery'>
                 <view class="kaij-mylist-li">
@@ -461,12 +460,12 @@
         <view class='kaij-tit'>
           地方彩种
         </view>
-        <view class='local-box' wx:for="{{provList[2]}}" wx:key="{{item.id}}" wx:for-index="idx">
+        <view class='local-box' wx:for="{{provList}}" wx:key="{{item.id}}" wx:for-index="idx">
           <view class='local-tit' bindtap='collap' data-type="2" data-idx="{{idx}}" data-provId="{{item.id}}">
             {{item.province}}
             <view class="list-arrow {{collapStatus[idx] ? 'arrow-up' : 'arrow-down'}}"></view>
           </view>
-          <block wx:for="{{provLottery[2][item.id]}}" wx:for-item="lottery" wx:if="{{collapStatus[idx]}}">
+          <block wx:for="{{provLottery[item.id]}}" wx:for-item="lottery" wx:if="{{collapStatus[idx]}}">
             <navigator url='gaopin/gaopin?lotname={{lottery.lotname}}&day={{lottery.opentime}}&lotchinesename={{lottery.lotchinesename}}' hover-class='none'>
               <view class='local-lottery'>
                 <view class="kaij-mylist-li">

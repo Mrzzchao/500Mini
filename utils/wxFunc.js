@@ -7,6 +7,9 @@ function request(url, data = {}, method = 'GET') {
       url,
       data,
       method,
+      header: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
       success: (res) => {
         resolve(res.data)
       },
@@ -44,14 +47,14 @@ function requestPost(url, data = {}) {
  * 封装微信的requestPayment
  */
 function requestPayment(obj) {
-  let {timeStamp, nonceStr, package, signType, paySign} = obj
+  let {timeStamp, nonceStr, signType, paySign} = obj
   return new Promise((resolve, reject) => {
     wx.requestPayment({
       timeStamp,
       nonceStr,
-      package,
       signType,
       paySign,
+      "package": obj.package,
 
       success: (res) => {
         resolve(res.data)

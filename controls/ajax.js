@@ -24,7 +24,7 @@ function hideLoading() {
  */
 function getQuanguo() {
   showLoading()
-  return WxFunc.request(Api.HotList).then((res) => {
+  return WxFunc.requestPost(Api.HotList).then((res) => {
     hideLoading()
     if(res.status === '100') {
       return res.data
@@ -37,7 +37,7 @@ function getQuanguo() {
  */
 function getHotInfo(lotid) {
   showLoading()
-  return WxFunc.requestPost(Api.HotInfo, {lotid}).then((res) => {
+  return WxFunc.request(Api.HotInfo, { lotid, t: new Date().getTime()}).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
@@ -50,7 +50,7 @@ function getHotInfo(lotid) {
  */
 function getHotHistory(lotid) {
   showLoading()
-  return WxFunc.requestPost(Api.HotHistory, {lotid}).then((res) => {
+  return WxFunc.request(Api.HotHistory, { lotid, t: new Date().getTime()}).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
@@ -61,15 +61,68 @@ function getHotHistory(lotid) {
 /**
  * 获取全国彩彩种奖项详情
  */
-function getHotPrizeDetail(lotid, expect) {
+function getHotPrizeDetail({lotid, expect}) {
   showLoading()
-  return WxFunc.requestPost(Api.HotPrizeDetail, {lotid, expect}).then((res) => {
+  return WxFunc.request(Api.HotPrizeDetail, { lotid, expect, t: new Date().getTime()}).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
     }
   })
 }
+
+/**
+ * 获取北单期号列表
+ */
+function getBdExpectList() {
+  showLoading()
+  return WxFunc.requestPost(Api.BdExpectList, { t: new Date().getTime() }).then((res) => {
+    hideLoading()
+    if (res.status === '100') {
+      return res.data
+    }
+  })
+}
+
+/**
+ * 获取北单胜负期号列表
+ */
+function getBdsfExpectList() {
+  showLoading()
+  return WxFunc.requestPost(Api.BdsfExpectList, { t: new Date().getTime() }).then((res) => {
+    hideLoading()
+    if (res.status === '100') {
+      return res.data
+    }
+  })
+}
+
+/**
+ * 获取竞彩详情
+ */
+function getJcPrizeDetail({ lotid, expect, day}) {
+  showLoading()
+  return WxFunc.request(Api.JcPrizeDetail, { lotid, expect, day, t: new Date().getTime() }).then((res) => {
+    hideLoading()
+    if (res.status === '100') {
+      return res.data
+    }
+  })
+}
+
+/**
+ * 获取竞彩日期
+ */
+function getJcHistory() {
+  showLoading()
+  return WxFunc.request(Api.JcHistory, {t: new Date().getTime() }).then((res) => {
+    hideLoading()
+    if (res.status === '100') {
+      return res.data
+    }
+  })
+}
+
 
 /**
  * 获取省份列表
@@ -89,7 +142,7 @@ function getProvList(type) {
  */
 function getProvLottery(type, id) {
   showLoading()
-  return WxFunc.request(Api.ProvLottery, { type, id }).then((res) => {
+  return WxFunc.requestPost(Api.ProvLottery, { type, id }).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
@@ -100,9 +153,9 @@ function getProvLottery(type, id) {
 /**
  * 获取地方彩彩种详情
  */
-function getLocalDetail(lotname, expect) {
+function getLocalDetail({lotname, expect}) {
   showLoading()
-  return WxFunc.request(Api.LocalDetail, {lotname, expect, t: new Date().now()}).then((res) => {
+  return WxFunc.requestPost(Api.LocalDetail, {lotname, expect, t: Date.now()}).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
@@ -113,9 +166,9 @@ function getLocalDetail(lotname, expect) {
 /**
  * 获取高频彩彩种详情
  */
-function getGaopinList(lotname, day) {
+function getGaopinList({lotname, day}) {
   showLoading()
-  return WxFunc.request(Api.LocalDetail, { lotname, day, t: new Date().now() }).then((res) => {
+  return WxFunc.requestPost(Api.GaopinList, { lotname, day, t: Date.now() }).then((res) => {
     hideLoading()
     if (res.status === '100') {
       return res.data
@@ -124,12 +177,20 @@ function getGaopinList(lotname, day) {
 }
 
 module.exports = {
-  getQuanguo,
+  getQuanguo, 
   getHotInfo,
   getHotHistory,
   getHotPrizeDetail,
+
+  getBdExpectList,
+  getBdsfExpectList,
+
+  getJcPrizeDetail,
+  getJcHistory,
+
   getProvList,
   getProvLottery,
+
   getLocalDetail,
   getGaopinList
 }
