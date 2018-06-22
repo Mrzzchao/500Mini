@@ -16,6 +16,7 @@ Page({
       this.setData({ historyList: data });
       this.setData({ datachartPath: data[0].zoushitu })    // 数组结构放在第一项处理
       this.setData({ zstTitle: data[0].zoushitu_title })
+      this.setData({ helpPath: data[0].helpurl })
     })
   }
 })

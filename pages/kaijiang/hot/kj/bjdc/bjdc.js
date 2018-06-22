@@ -48,6 +48,7 @@ Page({
   getOpenInfo() {
     app.utils.Ajax.getHotPrizeDetail({ lotid: this.lotId, expect: this.data.expect}).then((data) => {
       this.setData({ data });
+      this.setData({ helpPath: data.helpurl })
     })
   },
 

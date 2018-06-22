@@ -30,6 +30,7 @@ Page({
   getOpenInfo() {
     app.utils.Ajax.getJcPrizeDetail({ lotid: 46, expect: '', day: this.data.day.replace(/-/g, '') }).then((data) => {
       this.setData({ matchList: data });
+      this.setData({ helpPath: data[0].helpurl });
     })
   },
   getDateList() {

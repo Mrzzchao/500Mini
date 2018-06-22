@@ -24,7 +24,7 @@ Page({
     })
   },
   getUrl(lotname) {
-    const url = `http://m.500.com/lottery/help/${lotname}_help.html?0_ala_h5qb`
+    const url = `https://m.500.com/lottery/help/${lotname}_help.html?0_ala_h5qb`
     return url
   }
 })

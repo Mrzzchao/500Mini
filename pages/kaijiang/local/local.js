@@ -36,6 +36,7 @@ Page({
       this.formatExpect(data.historyexpect)
       this.setData({ localDetail: data })
       this.setData({ historyList: data.historyexpect })
+      this.setData({ helpPath: data.helpurl })
       this.setData({ datachartPath: data.zoushitu })
       this.setData({ zstTitle: data.zoushitu_title })
     })

@@ -43,6 +43,7 @@ Page({
       this.setData({ dayList: data.historydate })
       this.setData({ datachartPath: data.zoushitu })
       this.setData({ zstTitle: data.zoushitu_title })
+      this.setData({ helpPath: data.helpurl })
     })
   },
 

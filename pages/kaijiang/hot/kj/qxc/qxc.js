@@ -50,6 +50,7 @@ Page({
     this.setData({ prize_info: data });
     this.setData({ datachartPath: data.zoushitu })
     this.setData({ zstTitle: data.zoushitu_title })
+    this.setData({ helpPath: data.helpurl })
     })
   },
 
