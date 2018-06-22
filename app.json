@@ -32,9 +32,13 @@
     "pages/kaijiang/hot/datachart/datachart",
     "pages/kaijiang/gaopin/gaopin",
     "pages/kaijiang/gaopin/datachart/datachart",
+    "pages/kaijiang/gaopin/help/help",
     "pages/openplatform/index",
     "pages/openplatform/home",
-    "pages/wxpay/wxpay"
+    "pages/wxpay/wxpay",
+    "pages/kaijiang/hot/kj/sd/sd",
+    "pages/kaijiang/hot/kj/zc6/zc6",
+    "pages/kaijiang/hot/kj/jq4/jq4"
   ],
   "window": {
     "backgroundTextStyle": "light",

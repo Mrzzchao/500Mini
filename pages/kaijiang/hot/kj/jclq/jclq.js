@@ -7,6 +7,7 @@ Page({
     detailPath: '/pages/kaijiang/hot/kj/jclq/detail/detail',      // 底下Tab小程序详情页地址
     helpPath: '/pages/kaijiang/hot/help/help',      // 底下Tab小程序玩法地址
   },
+
   onLoad(options) {
     if (options.day) {
       this.setData({ day: options.day });
@@ -14,6 +15,7 @@ Page({
       this.getDateList();
     }
   },
+  
   changeTap(e) {
     this.setData({ tab: e.currentTarget.dataset.tab })
   },

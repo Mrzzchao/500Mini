@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "500.com 福彩3D",
+  "usingComponents": {
+    "foot-tab": "/components/footTab"
+  }
+}

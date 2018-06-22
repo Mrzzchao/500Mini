@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "500.com 4场进球彩",
+  "usingComponents": {
+    "foot-tab": "/components/special/footTab"
+  }
+}

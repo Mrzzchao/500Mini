@@ -11,7 +11,7 @@ Page({
     dayList: [],
     kjPath: '',                                     // 底下Tab小程序开奖地址
     datachartPath: '',                              // 底下Tab小程序走势图地址
-    helpPath: '/pages/kaijiang/hot/help/help',      // 底下Tab小程序玩法地址
+    helpPath: '/pages/kaijiang/gaopin/help/help',      // 底下Tab小程序玩法地址
     zstTitle: ''                                    // 走势图标题
   },
 
@@ -27,6 +27,7 @@ Page({
 
     this.setData({day})
     this.setData({ lotname: options.lotname })
+    console.log(options)
     this.getGaopinList({
       day,
       lotname: options.lotname

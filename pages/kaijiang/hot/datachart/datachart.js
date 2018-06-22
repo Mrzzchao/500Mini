@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.initUrl(options.lotname)
-    wx.setNavigationBarTitle({ title: options.title })
+    // wx.setNavigationBarTitle({ title: options.title })
   },
   initUrl(lotname) {
     this.setData({

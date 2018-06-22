@@ -4,13 +4,12 @@ Page({
   data: {
     tab: '1',
     historyList: [],
-    current_expect: '',
     kjPath: '',                                     // 底下Tab小程序开奖地址
     datachartPath: '',                              // 底下Tab小程序走势图地址
     helpPath: '/pages/kaijiang/hot/help/help',      // 底下Tab小程序玩法地址
     zstTitle: ''                                    // 走势图标题
   },
-  onLoad: function (options) {
+  onLoad(options) {
     this.init(options)
     this.setData({lotname: options.lotname})
     this.getLocalDetail(options)
@@ -24,7 +23,7 @@ Page({
 
     wx.setNavigationBarTitle({ title: options.lotchinesename + '详情' })
   },
-  changeTap: function () {
+  changeTap() {
     if (this.data.tab == '1') {
       this.setData({ tab: '2' });
     } else {
