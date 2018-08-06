@@ -19,7 +19,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/kaijiang/hot/help/help">
+    <navigator url="/pages/kaijiang/hot/help/help?lotname=ssq">
       <view class="foot-tab-cont4 {{select == 'zixun' ? 'tab-cur' : ''}}">
         <view class="zx-icon"></view>
         <view class="tab-cont-txt">玩法介绍</view>
