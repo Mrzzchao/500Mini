@@ -18,7 +18,7 @@ Page({
       this.getBdsfExpectList();
     }
   },
-
+  
   changeTap (e) {
     if( e.currentTarget.dataset.tab=='sf'){
          this.lotId = 55;

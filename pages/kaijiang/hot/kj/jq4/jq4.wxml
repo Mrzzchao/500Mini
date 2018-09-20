@@ -8,10 +8,19 @@
 </view>
 <view class="wrapper" wx:if="{{tab=='1'}}">
   <view class="kaij-basic">
-    <view class="kaij-basic-l"><span class="ui-logo ui-logo-sfc"></span>  </view>
+    <view class="kaij-basic-l">
+      <span class="ui-logo ui-logo-sfc"></span>
+    </view>
     <view class="kaij-basic-r">
       <view class="kaij-time">{{prize_info.resulttime}}</view>
       <view class="kaij-tit">{{expect}}期</view>
+    </view>
+    <view class="kaij-list1-bd">
+      <view class="sfc-ball-wrap">
+        <block wx:for-items="{{prize_info.result}}" wx:for-item="code">
+          <view class="sfc-ball-boxer">{{code}}</view>
+        </block>
+      </view>
     </view>
   </view>
   <view class="kaij-detail">
@@ -79,7 +88,7 @@
             <view class="xiaol-this-item l-flex-4">{{prize_info.teams[6].TeamName}} vs {{prize_info.teams[7].TeamName}}</view>
             <view class="xiaol-this-item itm-light l-flex-3">{{prize_info.teams[6].MatchScore}}:{{prize_info.teams[7].MatchScore}}</view>
             <view class="xiaol-this-item itm-light l-flex-3">{{prize_info.teams[6].Result}}-{{prize_info.teams[7].Result}}</view>
-           </view>
+          </view>
         </view>
       </view>
     </view>

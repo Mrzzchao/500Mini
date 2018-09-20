@@ -1,91 +1,100 @@
 <view class="ui-navbox">
-    <view class="ui-navbox-in">
-        <view class="ui-navbox-iners">
-            <view bindtap="changeTap" class="ui-navbox-iner  {{tab=='1'?'select':''}}">本期详情</view>
-            <view bindtap="changeTap" class="ui-navbox-iner {{tab=='2'?'select':''}}">更多期次</view>
-        </view>
+  <view class="ui-navbox-in">
+    <view class="ui-navbox-iners">
+      <view bindtap="changeTap" class="ui-navbox-iner  {{tab=='1'?'select':''}}">本期详情</view>
+      <view bindtap="changeTap" class="ui-navbox-iner {{tab=='2'?'select':''}}">更多期次</view>
     </view>
+  </view>
 </view>
 <view class="wrapper" wx:if="{{tab=='1'}}">
-    <view class="kaij-basic">
-        <view class="kaij-basic-l"><span class="ui-logo ui-logo-sfc"></span></view>
-        <view class="kaij-basic-r">
-            <view class="kaij-time">{{prize_info.resulttime}}</view>
-            <view class="kaij-tit">{{expect}}期</view>
-        </view>
+  <view class="kaij-basic">
+    <view class="kaij-basic-l">
+      <span class="ui-logo ui-logo-bqc"></span>
     </view>
-    <view class="kaij-detail">
-        <view class="kaij-tab-hd">
-            <view class="kaij-tab-hders">
-                <view class="kaij-tab-hder">开奖详情</view>
-            </view>
-        </view>
-        <view class="kaij-tab-bd kaij-detail-hasbot">
-            <view class="pdlr10">
-                <view class="kaij-table">
-                    <view class="xiaol-this l-flex-row">
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-1">本期销量</view>
-                        <view class="xiaol-this-item xiaol-this-tit  l-flex-1">滚存</view>
-                    </view>
-                    <view class="xiaol-this l-flex-row">
-                        <view class="xiaol-this-item itm-light l-flex-1">{{prize_info.totalmoney}}</view>
-                        <view class=" xiaol-this-item itm-light l-flex-1">{{prize_info.ccmoney}}</view>
-                    </view>
-                </view>
-            </view>
-            <view class="pdlr10">
-                <view class="kaij-table">
-                    <view class="xiaol-this l-flex-row">
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖项</view>
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-1">中奖注数</view>
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-1">每注奖金(元)</view>
-                    </view>
-                    <view class="xiaol-this l-flex-row">
-                        <view class="xiaol-this-item l-flex-1">一等奖</view>
-                        <view class="xiaol-this-item l-flex-1">{{prize_info.num1?prize_info.num1:'--'}}</view>
-                        <view class="xiaol-this-item itm-light l-flex-1">
-                            {{prize_info.money1?prize_info.money1:'--'}}
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <view class="pdlr10" style="margin-top: 20px;">
-                <view class="kaij-table">
-                    <view class="xiaol-this l-flex-row">
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-1">场次</view>
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-2">对阵</view>
-                        <view class="xiaol-this-item xiaol-this-tit l-flex-3">赛果</view>
-                    </view>
-                    <block wx:for-items="{{prize_info.teams}}">
-                    <view class="xiaol-this l-flex-row">
-                          <view class="xiaol-this-item l-flex-2">{{index+1}}</view>
-                        <view class="xiaol-this-item l-flex-4">{{item.HomeTeamName}} vs {{item.GuestTeamName}}</view>
-                        <view class="xiaol-this-item itm-light l-flex-5">全场({{item.MatchScore}})半场({{item.HalfMatchScore}})</view>
-                        <view class="xiaol-this-item itm-light l-flex-1">{{item.Result}}</view>
-                    </view>
-                     </block>
-                </view>
-            </view>
-        </view>
+    <view class="kaij-basic-r">
+      <view class="kaij-time">{{prize_info.resulttime}}</view>
+      <view class="kaij-tit">{{expect}}期</view>
     </view>
+    <view class="kaij-list1-bd">
+      <view class="sfc-ball-wrap">
+        <block wx:for-items="{{prize_info.result}}" wx:for-item="code">
+          <view class="sfc-ball-boxer">{{code}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="kaij-detail">
+    <view class="kaij-tab-hd">
+      <view class="kaij-tab-hders">
+        <view class="kaij-tab-hder">开奖详情</view>
+      </view>
+    </view>
+    <view class="kaij-tab-bd kaij-detail-hasbot">
+      <view class="pdlr10">
+        <view class="kaij-table">
+          <view class="xiaol-this l-flex-row">
+            <view class="xiaol-this-item xiaol-this-tit l-flex-1">本期销量</view>
+            <view class="xiaol-this-item xiaol-this-tit  l-flex-1">滚存</view>
+          </view>
+          <view class="xiaol-this l-flex-row">
+            <view class="xiaol-this-item itm-light l-flex-1">{{prize_info.totalmoney}}</view>
+            <view class=" xiaol-this-item itm-light l-flex-1">{{prize_info.ccmoney}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="pdlr10">
+        <view class="kaij-table">
+          <view class="xiaol-this l-flex-row">
+            <view class="xiaol-this-item xiaol-this-tit l-flex-1">奖项</view>
+            <view class="xiaol-this-item xiaol-this-tit l-flex-1">中奖注数</view>
+            <view class="xiaol-this-item xiaol-this-tit l-flex-1">每注奖金(元)</view>
+          </view>
+          <view class="xiaol-this l-flex-row">
+            <view class="xiaol-this-item l-flex-1">一等奖</view>
+            <view class="xiaol-this-item l-flex-1">{{prize_info.num1?prize_info.num1:'--'}}</view>
+            <view class="xiaol-this-item itm-light l-flex-1">
+              {{prize_info.money1?prize_info.money1:'--'}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="pdlr10" style="margin-top: 20px;">
+        <view class="kaij-table">
+          <view class="xiaol-this l-flex-row">
+            <view class="xiaol-this-item xiaol-this-tit l-flex-1">场次</view>
+            <view class="xiaol-this-item xiaol-this-tit l-flex-2">对阵</view>
+            <view class="xiaol-this-item xiaol-this-tit l-flex-3">赛果</view>
+          </view>
+          <block wx:for-items="{{prize_info.teams}}">
+            <view class="xiaol-this l-flex-row">
+              <view class="xiaol-this-item l-flex-2">{{index+1}}</view>
+              <view class="xiaol-this-item l-flex-4">{{item.HomeTeamName}} vs {{item.GuestTeamName}}</view>
+              <view class="xiaol-this-item itm-light l-flex-5">全场({{item.MatchScore}})半场({{item.HalfMatchScore}})</view>
+              <view class="xiaol-this-item itm-light l-flex-1">{{item.Result}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 <view class="wrapper wrapper-hasbot" wx:if="{{tab=='2'}}">
-    <view class="kaij-list1">
-      <block wx:for-items="{{historyList}}">
-        <view class="kaij-list-item" catchtap="showPrize" data-expect="{{item.expect}}">
-            <view class="kaij-list1-hd">
-                <view class="kaij-list1-time">{{item.opentime}}</view>
-                <view class="kaij-list1-tit">第{{item.expect}}期</view>
-            </view>
-            <view class="kaij-list1-bd">
-                <view class="sfc-ball-wrap">
-                   <block wx:for-items="{{item.opencode}}" wx:for-item="code">
-                    <view class="sfc-ball-boxer">{{code}}</view>
-                   </block>
-                </view>
-            </view>
+  <view class="kaij-list1">
+    <block wx:for-items="{{historyList}}">
+      <view class="kaij-list-item" catchtap="showPrize" data-expect="{{item.expect}}">
+        <view class="kaij-list1-hd">
+          <view class="kaij-list1-time">{{item.opentime}}</view>
+          <view class="kaij-list1-tit">第{{item.expect}}期</view>
         </view>
-      </block>
-    </view>
+        <view class="kaij-list1-bd">
+          <view class="sfc-ball-wrap">
+            <block wx:for-items="{{item.opencode}}" wx:for-item="code">
+              <view class="sfc-ball-boxer">{{code}}</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
 </view>
 <foot-tab kjPath="{{kjPath}}" helpPath="{{helpPath}}" title="{{zstTitle}}"></foot-tab>

@@ -19,6 +19,10 @@ Component({
     title: {
       type: String,
       value: '500彩票'
+    },
+    tabs: {
+      type: Array,
+      value: []
     }
   },
 

@@ -1,5 +1,5 @@
-const RootUrl = 'https://passport.500.com'
-const subPath = '/wechatapp' // 线上环境加该路径
+const RootUrl = 'https://ews.500.com'
+const subPath = '/xcxkj' // 线上环境加该路径
 
 const domain = RootUrl + subPath
 

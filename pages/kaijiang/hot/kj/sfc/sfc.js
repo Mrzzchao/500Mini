@@ -43,6 +43,9 @@ Page({
 
   getPrizeDetail() {
     app.utils.Ajax.getHotPrizeDetail({ lotid: 1, expect: this.data.expect }).then((data) => {
+      if (data && data.result) {
+        data.result = data.result.split(',');
+      }
       this.setData({ prize_info: data });
       this.setData({ helpPath: data.helpurl })
     })

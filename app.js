@@ -27,7 +27,8 @@ App({
   },
   globalData: {
     rechecktimes : 0,
-    userInfo:null
+    userInfo:null,
+    isQB: wx.getSystemInfoSync().isQB
   },
   utils: {
     Ajax: Ajax
