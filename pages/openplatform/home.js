@@ -43,8 +43,6 @@ Page({
     const domain = 'wx.500.com'
     const params = `skey=${wx.getStorageSync('user_session_key')}&backurl=${encodeURIComponent(openplatformUrl)}`
     return `${protocal}://${domain}/port/wxminiapi/jump.php?${params}&t=${new Date().getTime()}`
-
-    return openplatformUrl
   },
   getQBUrl() {
     // const openplatformUrl = 'https://m.500.com'
