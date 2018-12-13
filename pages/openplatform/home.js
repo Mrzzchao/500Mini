@@ -47,6 +47,7 @@ Page({
   getQBUrl() {
     // const openplatformUrl = 'https://m.500.com'
     const openplatformUrl = 'https://m.500.com/openplatform/?showhead&httpsonly=1&hdflag=true&wxmini'
+    // const openplatformUrl = 'http://wx.500boss.com/~xiaoxx/wx.500.com/html/openplatform/?showhead&httpsonly=1&hdflag=true&wxmini'
     // const openplatformUrl = 'http://wx.500boss.com/user/index.php?c=home&a=login&from=&backurl=http%3A%2F%2Fhuodong.500boss.com%2F2018%2Fmrjc%2Ftouch.php%23%2F'
 
     return openplatformUrl
